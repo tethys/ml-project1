@@ -16,7 +16,7 @@ function beta = leastSquaresGD(y, tX, alpha)
   L = computeCost(y, tX, beta); 
   k = 1;  
   err = 100;
-  while (k < maxIters && err < eps)
+  while (k < maxIters && err > eps)
     Lold = L;
     % INSERT YOUR FUNCTION FOR COMPUTING GRADIENT 
     g = computeGradient(y, tX, beta);
