@@ -1,0 +1,33 @@
+
+%% 1)found and remove outlier by plotting histogram of y
+%% 2) center the input data, except the categorical variables, plot their histograms
+%% 
+%% 3)seem there is correlation between input-output (except categorical values)
+%%  find if there is correlation between input/outupt
+%%  plot also histogram of every x feature wrt y
+
+%% is one feature is not correleated with output, should not remove it, keep it
+%% maybe it is important in relation with others
+%% 
+%% 4) Initial model trial:
+%% for b0 only test loss(yTr, mean(yTr)), loss(yTe,mean(yTr)), NOT yTr!!!
+%% Linear least squares in not going to work perfectly, look at size and rank of XTraining, 
+%% should be 8 here but it is 6, some feature correlation
+%%
+%% However there is an improvement in rmee from mean-b0 to linear model with rank deficient least squares
+%%
+
+%% Use dummy variables!!!
+%% show image
+
+%% First feature with respect to the other features!! Print that
+%% Ridge regression will deal with deal with that by shrinking the weights
+%% If a variable is not correlated with an output and with any other feature, it might be ok to remove it
+
+%% Repeat the steps with another train/validation set, before doing cross validation.
+%% The data seems to be iid
+
+%% plot various lambda, then again in a smaller another interval for ridge regression
+%% Improved a bit, but not super much
+
+%% add another term, a squared term, 3rd squred term did not work. Sqrt of the data helped
