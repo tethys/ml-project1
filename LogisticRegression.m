@@ -18,6 +18,7 @@ function beta = logisticRegression( varargin )
   
   % Initialize algorithm parametes
   maxIters = 1000;
+  beta = randn( size(tX, 2), 1 );
   
   for k = 1 : maxIters
 
