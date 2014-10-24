@@ -1,4 +1,5 @@
-function s = sigmoid( z )
-	s = zeros(size(z));
-    s = 1 ./ ( 1 + exp( -1 * z ));
+function s = sigmoid( x )
+
+    s = 1 ./ ( 1 + exp( -x ));
+
 end

@@ -1,34 +1,48 @@
-function beta = leastSquaresGD(y, tX, alpha)
+function beta = leastSquaresGD( varargin )
 % Summary of this function goes here
 %   Detailed explanation goes here
 
-
-  % algorithm parametes
+  % Chech the arguments
+  switch nargin
+      case 2
+          y = varargin{1};
+          tX = varargin{2};
+          alpha = 10e-3;
+      case 3
+          y = varargin{1};
+          tX = varargin{2};
+          alpha = varargin{3};
+      otherwise
+          error('Unexpected number of input arguments');
+  end
+  
+  % Initialize algorithm parametes
   maxIters = 1000;
-  % initialize
-  beta = randn(size(y));
+  k = 1;
+  err = 100;
+  beta = randn( size(tX, 2), 1 );
+  Lold = computeCostMSE(y, tX, beta);
 
-  % iterate
+  % Termination of iterations
   fprintf('Starting iterations, press Ctrl+c to break\n');
 
 
-  % INSERT YOUR FUNCTION FOR COMPUTING COST FUNCTION
-  L = computeCost(y, tX, beta); 
-  k = 1;  
-  err = 100;
-  while (k < maxIters && err > eps)
-    Lold = L;
-    % INSERT YOUR FUNCTION FOR COMPUTING GRADIENT 
-    g = computeGradient(y, tX, beta);
-    L = computeCostMSE(y, tX, beta); 
+  % Gradient descent iteration
+  while ( k <= maxIters && err > eps )
+        
+    % Gradient computation
+    g = computeGradient(y, tX, beta); 
+      
+    % Updating for value of 'beta'
+    beta = beta - alpha .* g;
     
-    fprintf('L  %d \n', L);
-  
-    % INSERT GRADIENT DESCENT UPDATE TO FIND BETA
-    beta = beta - alpha.*g;
+    % Error computation
+    L = computeCostMSE(y, tX, beta);
     err = abs(Lold - L);
+    Lold = L;
     
     k = k + 1;
+    
   end
-end
 
+end
