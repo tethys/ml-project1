@@ -7,20 +7,17 @@
 %% Remove outliers
 %%
 %%
+clear all;
 
 data = load('Rome_classification.mat');
+%% make dimension X_14 which is categorical into dummy variable
 D = size(data.X_train,2);
 X_train = data.X_train(:,1:D);
 y_train = data.y_train(:,1);
 
 
-%% Compute mean and std of the training set
-X_mean = mean(X_train);
-X_std = std(X_train);
-%% plot error bar for every dimenstion
-errorbar(X_mean, X_std)
-pause
-
+xdata = dummyvar(X_train);
+imagesc(xdata)
 
 %% Normalize the data to have 0 mean and 1 std
 N = size(X_train,1);
