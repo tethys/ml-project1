@@ -15,7 +15,6 @@ function beta = logisticRegression( varargin )
       otherwise
           error('Unexpected number of input arguments');
   end
-  
   % Initialize algorithm parametes
   maxIters = 1000;
   beta = randn( size(tX, 2), 1 );
