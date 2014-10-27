@@ -1,14 +1,11 @@
-function cost = computeCostLogReg(y, tX, beta)
-    [nSamp] = size(tX, 1);
+function L = computeCostLogReg(y, tX, beta)
+    N = size( tX, 1 );
+    L = 0.0;
     
-    cost = 0.0;
-    for k = nSamp
-       if(y(k) == 1)
-           cost = cost + log(sigmoid(tX(k, :) * beta));
-       else
-           cost = cost + log(1 - sigmoid(tX(k, :) * beta));
-       end
-    
-       cost = -(cost / nSamp);
+    for i = 1 : N
+        L = L - y(i) * log( sigmoid( tX(i,:) * beta ) ) - (1 - y(i)) * log( 1 - sigmoid( tX(i,:) * beta ) );
     end
+    
+    L = L ./ N;
+    
 end

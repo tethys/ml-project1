@@ -1,4 +1,4 @@
-function beta = leastSquaresGD( varargin )
+function beta = penLogisticRegression( varargin )
 % Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -8,10 +8,17 @@ function beta = leastSquaresGD( varargin )
           y = varargin{1};
           tX = varargin{2};
           alpha = 10e-3;
+          lambda = 10e-2;
       case 3
           y = varargin{1};
           tX = varargin{2};
           alpha = varargin{3};
+          lambda = 10e-2;
+      case 4
+          y = varargin{1};
+          tX = varargin{2};
+          alpha = varargin{3};
+          lambda = varargin{4};
       otherwise
           error('Unexpected number of input arguments');
   end
@@ -21,7 +28,7 @@ function beta = leastSquaresGD( varargin )
   k = 1;
   err = 1 ./ eps;
   beta = randn( size(tX, 2), 1 );
-  Lold = computeCostMSE(y, tX, beta);
+  Lold = computeCostPenLogReg( y, tX, beta, lambda );
 
   % Termination of iterations
   fprintf('Starting iterations, press Ctrl+c to break\n');
@@ -31,18 +38,18 @@ function beta = leastSquaresGD( varargin )
   while ( k <= maxIters && err > eps )
         
     % Gradient computation
-    g = computeGradient(y, tX, beta); 
+    g = computeGradientPenLogReg( y, tX, beta, lambda ); 
       
     % Updating for value of 'beta'
     beta = beta - alpha .* g;
     
     % Error computation
-    L = computeCostMSE(y, tX, beta);
+    L = computeCostPenLogReg( y, tX, beta, lambda );
     err = abs(Lold - L);
     Lold = L;
     
     k = k + 1;
     
   end
-
+  
 end

@@ -18,16 +18,31 @@ function beta = logisticRegression( varargin )
   
   % Initialize algorithm parametes
   maxIters = 1000;
+  k = 1;
+  err = 1 ./ eps;
   beta = randn( size(tX, 2), 1 );
-  
-  for k = 1 : maxIters
+  Lold = computeCostLogReg(y, tX, beta);
 
-      sig = sigmoid( tX * beta );
-      s = sig .* (1 - sig);
-      g = computeGradientLogReg( y, tX, beta );
-      inv_H = inv(tX' * diag(s) * tX);
-      beta = beta - alpha .* inv_H * g;
+  % Termination of iterations
+  fprintf('Starting iterations, press Ctrl+c to break\n');
 
+
+  % Gradient descent iteration
+  while ( k <= maxIters && err > eps )
+        
+    % Gradient computation
+    g = computeGradientLogReg(y, tX, beta); 
+      
+    % Updating for value of 'beta'
+    beta = beta - alpha .* g;
+    
+    % Error computation
+    L = computeCostLogReg(y, tX, beta);
+    err = abs(Lold - L);
+    Lold = L;
+    
+    k = k + 1;
+    
   end
   
 end
