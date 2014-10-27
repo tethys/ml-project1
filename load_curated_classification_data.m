@@ -4,8 +4,6 @@ function [X_train, y_train, X_test] = load_curated_classification_data
 clear all
 data = load('Rome_classification.mat');
 
-hist(data.y_train)
-title('Distribution of y training values')
 %% We observe that there are twice as many samples from one class type
 %% than the other
 
