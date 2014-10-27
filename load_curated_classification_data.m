@@ -41,4 +41,7 @@ X_std_rep = repmat(X_std, [N,1]);
 X_test = X_test - X_mean_rep;
 X_test = X_test ./ X_std_rep;
 
+indices = y_train == -1;
+y_train(indices) = 0;
+
 end
