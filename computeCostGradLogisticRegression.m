@@ -7,6 +7,6 @@ function [cost, grad] = computeCostGradLogisticRegression(y, tX, beta, lambda)
                 lambda/(2*N)*sum(beta(2:end).^2);
 
     beta_n = [0; beta(2:end)];
-    grad = 1/m*X'*(sigmoid(tX*beta) - y) + lambda/m*beta_n;
+    grad = 1/N* tX'*(sigmoid(tX*beta) - y) + lambda/N*beta_n;
 
 end
