@@ -8,4 +8,7 @@
 
 [X_train, y_train, X_test] = load_curated_classification_data;
 
+N = size(X_train,1);
+tX = [ones(N,1) X_train];
 
+beta = logisticRegression(y_train, tX);

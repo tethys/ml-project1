@@ -19,7 +19,9 @@ categorical_data = X_train(:,14);
 temp = dummyvar(categorical_data);
 X_train = [X_train(:,1:13) X_train(:,15:end) temp];
 
-
+categorical_data = X_test(:,14);
+temp = dummyvar(categorical_data);
+X_test = [X_test(:,1:13) X_test(:,15:end) temp];
 
 %% Compute mean and std of the training set
 X_mean = mean(X_train);
