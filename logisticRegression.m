@@ -7,7 +7,7 @@ function beta = logisticRegression( varargin )
       case 2
           y = varargin{1};
           tX = varargin{2};
-          alpha = 10e-3;
+          alpha = 10e-2;
       case 3
           y = varargin{1};
           tX = varargin{2};
@@ -17,17 +17,13 @@ function beta = logisticRegression( varargin )
   end
   
   % Initialize algorithm parametes
-  maxIters = 1000;
+  maxIters = 900;
   beta = randn( size(tX, 2), 1 );
-  
+
   for k = 1 : maxIters
-
-      sig = sigmoid( tX * beta );
-      s = sig .* (1 - sig);
-      g = computeGradientLogReg( y, tX, beta );
-      inv_H = inv(tX' * diag(s) * tX);
-      beta = beta - alpha .* inv_H * g;
-
+      [cost, grad] = computeCostGradLogisticRegression(y, tX, beta, 0);
+      beta = beta - alpha * grad;
+      fprintf(1, 'current cost %3.3f\n', cost)
   end
   
 end
