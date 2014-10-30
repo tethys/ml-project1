@@ -48,6 +48,7 @@ function [meanTrainError, meanValidationError]= KfoldCV(K, X, y, mode, varargin)
            validationError(k) = computeCostMSE(yTe, tXTe, beta);
         elseif(strcmp(mode, 'ridgeRegression') == 1)     %  ridgeRegression
            [beta] = ridgeRegression(yTr, tXTr, lambda);
+           beta
            [trainError(k), ~] = computeCostGradMSERegression(yTr, tXTr, beta, lambda);
            [validationError(k), ~] = computeCostGradMSERegression(yTe, tXTe, beta, lambda);
         elseif( strcmp(mode, 'logisticRegression') == 1)     %  logisticRegression
