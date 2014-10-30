@@ -44,17 +44,32 @@ function [meanTrainError, meanValidationError]= KfoldCV(K, tX, y, mode, varargin
            validationError(k) = computeCostMSE(yTe, tXTe, beta);
         elseif(strcmp(mode, 'ridgeRegression') == 1)     %  ridgeRegression
            [beta] = ridgeRegression(yTr, tXTr, lambda);
-           beta
            [trainError(k), ~] = computeCostGradMSERegression(yTr, tXTr, beta, lambda);
            [validationError(k), ~] = computeCostGradMSERegression(yTe, tXTe, beta, lambda);
         elseif( strcmp(mode, 'logisticRegression') == 1)     %  logisticRegression
            [beta] = logisticRegression(yTr, tXTr, alpha);
-           [trainError(k), ~] = computeCostGradLogisticRegression(yTr, tXTr, beta, 0);
-           [validationError(k), ~] = computeCostGradLogisticRegression(yTe, tXTe, beta, 0);
+           [trainError(k), ~] = computeCostGradLogisticRegression(yTr, tXTr, beta, lambda);
+%            [validationError(k), ~] = computeCostGradLogisticRegression(yTe, tXTe, beta, lambda);
+%            
+%            predicted_probability = zeros(length(yTr), 1);
+%            predicted_probability(sigmoid(tXTr*beta) >= 0.5) = 1;
+%            trainError(k) = mean(double(predicted_probability ~= yTr)) * 100;
+% 
+%            predicted_probability = zeros(length(yTe), 1);
+%            predicted_probability(sigmoid(tXTe*beta) >= 0.5) = 1;
+%            validationError(k) = mean(double(predicted_probability ~= yTe)) * 100;
+           
         elseif (strcmp(mode, 'penLogisticRegression') == 1)                    %  penLogisticRegression
-           [beta] = penLogisticRegression(yTr, XTr, alpha, lambda);
+           [beta] = penLogisticRegression(yTr, tXTr, alpha, lambda);
            [trainError(k), ~] = computeCostGradLogisticRegression(yTr, tXTr, beta, lambda);
            [validationError(k), ~] = computeCostGradLogisticRegression(yTe, tXTe, beta, lambda);
+          % predicted_probability = zeros(length(yTr), 1);
+          % predicted_probability(sigmoid(tXTr*beta) >= 0.5) = 1;
+          % trainError(k) = mean(double(predicted_probability ~= yTr)) * 100;
+
+          % predicted_probability = zeros(length(yTe), 1);
+          % predicted_probability(sigmoid(tXTe*beta) >= 0.5) = 1;
+          % validationError(k) = mean(double(predicted_probability ~= yTe)) * 100;
         else
             error('Wrong mode')
         end 
