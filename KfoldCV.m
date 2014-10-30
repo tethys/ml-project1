@@ -40,10 +40,16 @@ function [meanTrainError, meanValidationError]= KfoldCV(K, X, y, mode, varargin)
         % calculate parameters
         if( mode == 0 )         %  leastSquaresGD
            [beta] = leastSquaresGD(yTr, tXTr, alpha);
+           trainError(k) = computeCostMSE(yTr, tXTr, beta);
+           validationError(k) = computeCostMSE(yTr, tXTr, beta);
         elseif( mode == 1 )     %  leastSquares
            [beta] = leastSquares(yTr, tXTr);
+           trainError(k) = computeCostMSE(yTr, tXTr, beta);
+           validationError(k) = computeCostMSE(yTr, tXTr, beta);
         elseif( mode == 2 )     %  ridgeRegression
            [beta] = ridgeRegression(yTr, tXTr, lambda);
+           [trainError(k), ~] = computeCostGradMSERegression(yTr, tXTr, beta, lambda);
+           [validationError(k), ~] = computeCostGradMSERegression(yTr, tXTr, beta, lambda);
         elseif( mode == 3 )     %  logisticRegression
            [beta] = logisticRegression(yTr, tXTr, alpha);
            [trainError(k), ~] = computeCostGradLogisticRegression(yTr, tXTr, beta, 0);
