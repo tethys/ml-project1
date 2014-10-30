@@ -38,26 +38,28 @@ function [meanTrainError, meanValidationError]= KfoldCV(K, X, y, mode, varargin)
         tXTe = [ones(length(yTe), 1) XTe];
 
         % calculate parameters
-        if( mode == 0 )         %  leastSquaresGD
+        if(strcmp(mode, 'leastSquaresGD') == 1)         %  leastSquaresGD
            [beta] = leastSquaresGD(yTr, tXTr, alpha);
            trainError(k) = computeCostMSE(yTr, tXTr, beta);
-           validationError(k) = computeCostMSE(yTr, tXTr, beta);
-        elseif( mode == 1 )     %  leastSquares
+           validationError(k) = computeCostMSE(yTe, tXTe, beta);
+        elseif(strcmp(mode, 'leastSquares') == 1)     %  leastSquares
            [beta] = leastSquares(yTr, tXTr);
            trainError(k) = computeCostMSE(yTr, tXTr, beta);
-           validationError(k) = computeCostMSE(yTr, tXTr, beta);
-        elseif( mode == 2 )     %  ridgeRegression
+           validationError(k) = computeCostMSE(yTe, tXTe, beta);
+        elseif(strcmp(mode, 'ridgeRegression') == 1)     %  ridgeRegression
            [beta] = ridgeRegression(yTr, tXTr, lambda);
            [trainError(k), ~] = computeCostGradMSERegression(yTr, tXTr, beta, lambda);
-           [validationError(k), ~] = computeCostGradMSERegression(yTr, tXTr, beta, lambda);
-        elseif( mode == 3 )     %  logisticRegression
+           [validationError(k), ~] = computeCostGradMSERegression(yTe, tXTe, beta, lambda);
+        elseif( strcmp(mode, 'logisticRegression') == 1)     %  logisticRegression
            [beta] = logisticRegression(yTr, tXTr, alpha);
            [trainError(k), ~] = computeCostGradLogisticRegression(yTr, tXTr, beta, 0);
            [validationError(k), ~] = computeCostGradLogisticRegression(yTe, tXTe, beta, 0);
-        else                    %  penLogisticRegression
+        elseif (strcmp(mode, 'penLogisticRegression') == 1)                    %  penLogisticRegression
            [beta] = penLogisticRegression(yTr, XTr, alpha, lambda);
            [trainError(k), ~] = computeCostGradLogisticRegression(yTr, tXTr, beta, lambda);
            [validationError(k), ~] = computeCostGradLogisticRegression(yTe, tXTe, beta, lambda);
+        else
+            error('Wrong mode')
         end 
     end
     meanTrainError = mean(trainError);
