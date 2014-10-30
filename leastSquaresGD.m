@@ -21,7 +21,7 @@ function beta = leastSquaresGD( varargin )
   k = 1;
   err = 1 ./ eps;
   beta = randn( size(tX, 2), 1 );
-  Lold = computeCostMSE(y, tX, beta);
+  Lold = computeCostRMSE(y, tX, beta);
 
   % Termination of iterations
   fprintf('Starting iterations, press Ctrl+c to break\n');
@@ -37,7 +37,7 @@ function beta = leastSquaresGD( varargin )
     beta = beta - alpha .* g;
     
     % Error computation
-    L = computeCostMSE(y, tX, beta);
+    L = computeCostRMSE(y, tX, beta);
     err = abs(Lold - L);
     Lold = L;
     
