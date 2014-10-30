@@ -1,5 +1,5 @@
 % K-fold cross validation for estimating test errors
-function [meanTrainError, meanValidationError]= KfoldCV(K, X, y, mode, varargin)
+function [meanTrainError, meanValidationError]= KfoldCV(K, tX, y, mode, varargin)
 % Chech the arguments
 
     switch nargin
@@ -29,13 +29,9 @@ function [meanTrainError, meanValidationError]= KfoldCV(K, X, y, mode, varargin)
         idxTr = idxTr(:);
         
         yTe = y(idxTe);
-        XTe = X(idxTe,:);
+        tXTe = tX(idxTe,:);
         yTr = y(idxTr);
-        XTr = X(idxTr,:);
-
-        % form tX
-        tXTr = [ones(length(yTr), 1) XTr];
-        tXTe = [ones(length(yTe), 1) XTe];
+        tXTr = tX(idxTr,:);
 
         % calculate parameters
         if(strcmp(mode, 'leastSquaresGD') == 1)         %  leastSquaresGD
