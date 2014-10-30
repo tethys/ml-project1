@@ -5,7 +5,7 @@ data = load('Rome_regression.mat');
 D = size(data.X_train,2);
 
 %%% Remove outliers
-indices = (data.y_train < 4500);
+indices = (data.y_train < 4900);
 y_train = data.y_train(indices);
 X_train = data.X_train(indices,:);
 %% Do we remove here outliers??

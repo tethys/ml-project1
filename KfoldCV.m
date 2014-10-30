@@ -36,12 +36,12 @@ function [meanTrainError, meanValidationError]= KfoldCV(K, tX, y, mode, varargin
         % calculate parameters
         if(strcmp(mode, 'leastSquaresGD') == 1)         %  leastSquaresGD
            [beta] = leastSquaresGD(yTr, tXTr, alpha);
-           trainError(k) = computeCostMSE(yTr, tXTr, beta);
-           validationError(k) = computeCostMSE(yTe, tXTe, beta);
+           trainError(k) = computeCostRMSE(yTr, tXTr, beta);
+           validationError(k) = computeCostRMSE(yTe, tXTe, beta);
         elseif(strcmp(mode, 'leastSquares') == 1)     %  leastSquares
            [beta] = leastSquares(yTr, tXTr);
-           trainError(k) = computeCostMSE(yTr, tXTr, beta);
-           validationError(k) = computeCostMSE(yTe, tXTe, beta);
+           trainError(k) = computeCostRMSE(yTr, tXTr, beta);
+           validationError(k) = computeCostRMSE(yTe, tXTe, beta);
         elseif(strcmp(mode, 'ridgeRegression') == 1)     %  ridgeRegression
            [beta] = ridgeRegression(yTr, tXTr, lambda);
            [trainError(k), ~] = computeRMSECostGradRegression(yTr, tXTr, beta, lambda);
