@@ -17,9 +17,9 @@
 \title{Project-I by Group Rome}
 
 \author{
-Mohammad Emtiyaz Khan\\
+Viviana Petrescu\\
 EPFL \\
-\texttt{emtiyaz@gmail.com} \\
+\texttt{vpetresc@epfl.ch} \\
 }
 
 % The \author macro works with any number of authors. There are two commands
@@ -37,33 +37,38 @@ EPFL \\
 \maketitle
 
 \begin{abstract}
-In this report, we summarize our findings for the demo done on October 23, 2014.
-We fit several linear methods to the regression dataset and compare them.
-We found that the input matrix is ill-conditioned and therefore ridge regression is prefered over least-squares. It also appears that the linear model is appropriate for this data and predicts the data reasonably well. We also investigated a few feature transformations but found no significant improvements.
+We present our on two tasks, classification and regression on data that is not known. We process the data, investigate baseline methods and present our results here.
+For the regression task, out best model was <> and for classification was <>.
 \end{abstract}
 
-\section{Data Description}
-Our train-data consists of output variables $\mathbf{y}$ and input variables $\mathbf{X}$. We have $N=600$ data examples. Each input vector $\mathbf{x}_n$ is of dimensionality $D=10$. Out of these 10 variables, 8 variables are real valued while 1 variable is binary and 1 variable is categorical with 4 categories.
+\section{Regression}
+\subsection{Data Description}
+Our training data contains in 1400 samples, each 43 dimensional.
+The last 6 features were categorical. Our task is to predict the values for unseen testing data consisting in 600 samples. 
 
-We also have test-data where we do not observe $\mathbf{y}$. We have $N=600$ test examples. Our goal is to produce predictions for test examples, as well as an approximation of the test-error.
+\subsection{Data visualization and cleaning}
+The training samples contain 36 real valued features and 7 categorical features. 
+By plotting the correlation of every feature with the output $y_input$ we obeserved the samples were correlated with the input.
+We could see that there was correlation between features as well.
+The values of y were strangely peaked into two groups, looking like a roundish blob and an elongated blob.
+We observe that feature 36 offers a clearer separation of the two blobs.
+Since one of the blobs contained approx 10 per cent of the data, could not be ignored. We therefore chose to fit two models, when for which 
+feature 36 has values > 1.4 (after normalization) and one for which it is smaller, corresponding to smaller or wider y values. 
 
-\section{Data visualization and cleaning}
-We performed basic exploratory data analysis on our data. Figure \ref{fig:boxplotX} shows distributions of all 10 input variables. As expected the data is not centered, and therefore we normalize the data. Figure \ref{fig:histY} shows the histogram of the output variable. We see that there are two data points which have rather high value of the output variables compared to rest of the data. Since these are only two data points, we remove them from the data (example number 362 and 402).
-
-We also investigated the correlation between output and input variables (plot not shown, since it is not important for our analysis). We found that most of the variables are correlated with the output, confirming the need for a full regression analysis. The third variable did not seem significantly correlated, however this preliminary observation does not suggest removal of this variable from the dataset.
-
-We use a dummy encoding for the categorical variable. The binary variable does not require any dummy encoding. This gives us a total of 14 input variables.
-
-The input matrix $\mathbf{X}$ is rank-deficient with a rank of 6, instead of 10. This implies that we must ``lift" the eigenvalues, using methods such ridge regression.
-
-\begin{figure}[!t]
+\begin{figure}[!h]
 \center
-\subfigure[Boxplot of real-valued $\mathbf{X}$. Data is not centered and therefore we normalize it.]{\includegraphics[width=2.5in]{figures/boxplotX.pdf} \label{fig:boxplotX}}
+\subfigure[Feature 36 correlation with the output.]{\includegraphics[width=2.5in]{images/feature36.pdf} \label{fig:feature36}}
 \hfill
-\subfigure[Histogram of $\mathbf{y}$. We can clearly see two outliers.]{\includegraphics[width=2.5in]{figures/histY.pdf} \label{fig:histY}}
 \caption{}
 \end{figure}
 
+The categorical features were changed into dummyvariables, leading to a new vector of size 56. The $X_train$ was then normalized to have 0 mean and standard deviation 1.
+We observed some linear correlations between certain features such as feature 2 and 24, 13 and 16, 17 and 20, but we decided to keep them since we did not have time to experiment with their removal.
+\subsection{Baseline methods}
+ We experimented with least squares using the normal equations, the least squares using gradient descent with alpha.  In both cases we obtained the same result. TODO talk about ill conditioned matriices.
+ We report here our best results and parameters for every model. 
+ For finding lambda we used 5 fold cross validation. We can see in figure [] the best results for this.
+  
 \section{Ridge regression}
 We applied least-squares and ridge regression to this dataset. Since the matrix is ill-conditioned, least-squares is not suitable. Therefore, we report results obtained with ridge regression alone. Note that the improvements using ridge regression were modest and not much lower than that of linear regression, however we do not expect least-squares to work well when there is a lot of testing data available. 
 
