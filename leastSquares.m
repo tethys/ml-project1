@@ -1,6 +1,6 @@
-function beta = leastSquares( y, tX )
+function beta = leastSquares ( y, tX )
 % 'beta' computation using normal equations
 
-    beta = (tX' * tX) \ (tX' * y);
+  beta = (tX' * tX) \ (tX' * y);
 
 end

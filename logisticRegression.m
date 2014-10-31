@@ -1,4 +1,4 @@
-function beta = logisticRegression( varargin )
+function beta = logisticRegression ( varargin )
 % Summary of this function goes here
 %   Detailed explanation goes here
 

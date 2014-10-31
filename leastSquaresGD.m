@@ -1,4 +1,4 @@
-function beta = leastSquaresGD( varargin )
+function beta = leastSquaresGD ( varargin )
 % Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -7,7 +7,7 @@ function beta = leastSquaresGD( varargin )
       case 2
           y = varargin{1};
           tX = varargin{2};
-          alpha = 10e-3;
+          alpha = 0.1;
       case 3
           y = varargin{1};
           tX = varargin{2};
@@ -22,10 +22,6 @@ function beta = leastSquaresGD( varargin )
   err = 1 ./ eps;
   beta = randn( size(tX, 2), 1 );
   Lold = computeCostRMSE(y, tX, beta);
-
-  % Termination of iterations
-  fprintf('Starting iterations, press Ctrl+c to break\n');
-
 
   % Gradient descent iteration
   while ( k <= maxIters && err > eps )

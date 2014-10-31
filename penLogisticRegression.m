@@ -1,4 +1,4 @@
-function beta = penLogisticRegression(y,tX,alpha,lambda)
+function beta = penLogisticRegression ( y, tX, alpha, lambda )
 % Summary of this function goes here
 %   Detailed explanation goes here
 
