@@ -56,30 +56,44 @@ The predicted values were real values in [0,7] and seemed to be grouped into two
 
 After looking at every feature, we noticed that feature 36 offers a clear separation of the two blobs (see Fig 1). We therefore chose to fit two models, one in which feature 36 has values > 1.4 (after normalization) and one in which it is smaller, corresponding to smaller predicted value. 
 
-\begin{figure}[!h]
-\center
-\subfigure[Feature 36 correlation with the output.]{\includegraphics[width=2.5in]{figures/feature36.png} \label{fig:feature36}}
-\hfill
-\caption{}
-\subfigure[Distribution of input variables.]{\includegraphics[width=2.5in]{figures/input_distribution_regression.png} \label{fig:regression_distribution}}
-\hfill
-\caption{}
+%\begin{figure}[!h]
+%\center
+%\subfigure[Feature 36 correlation with the output.]{\includegraphics[width=2.5in]{figures/feature36.png} \label{fig:feature36}}
+%\hfill
+%\caption{}
+%\subfigure[Distribution of input variables.]{\includegraphics[width=2.5in]{figures/input_distribution_regression.png} \label{fig:regression_distribution}}
+%\hfill
+%\caption{}
 
-begin{figure}
-  begin{subfigure}[b]{0.4textwidth}
-    includegraphics[width=textwidth]{figures/feature36.png}
-    caption{Picture 1}
-    label{fig:1}
-  end{subfigure}
- 
-  begin{subfigure}[b]{0.4textwidth}
-    includegraphics[width=textwidth]{figures/feature36.png}
-    caption{Picture 2}
-    label{fig:2}
-  end{subfigure}
-end{figure}
-
+\begin{figure}[h]
+  \begin{subfigure}[b]{0.5\textwidth}
+   \includegraphics[width=\textwidth]{figures/dist_regression.png}
+    \caption{Mean and standard deviation for the first 36 real\newline valued variables of Xtrain. The input is not norma-\newline lised and feature 36 is the only negative one.}
+    \label{fig:dist_regression}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.5\textwidth}
+    \includegraphics[width=\textwidth]{figures/feature36.png}
+    \caption{Feature 36 versus output values. X = 1.4 (black line) and y = 4900 (red line)  provide a good separation of the two blobs.}
+    \label{fig:feature36}
+  \end{subfigure}
+  \caption{• Data visualization. }
 \end{figure}
+%\begin{figure}[ht]
+%\begin{minipage}[b]{0.45\linewidth}
+%\centering
+%\includegraphics[width=\textwidth]{filename1}
+%\caption{default}
+%\label{fig:figure1}
+%\end{minipage}
+%\hspace{0.5cm}
+%\begin{minipage}[b]{0.45\linewidth}
+%\centering
+%\includegraphics[width=\textwidth]{filename2}
+%\caption{default}
+%\label{fig:figure2}
+%\end{minipage}
+%\end{figure}
+
 We visually observed some linear correlations between certain features such as feature 2 and 24, 13 and 16, 17 and 20, but we decided to keep them since we did not have time to experiment with their removal or to test their signifance.
 \textcolor{red}{TODO} We also removed some outliers using
 
@@ -108,14 +122,14 @@ We compare three methods. First is a baseline where we do not use any input vari
 The RMSE for the last two methods are shown in Fig. \ref{fig:summary}. We see that both test and train error decrease, however it appears that the improvement is very little and may not be significant.
 
 
-\begin{figure}[!h]
-\center
-\subfigure[Ridge regression for a 50-50 split.]{\includegraphics[width=2.5in]{figures/ridgeCurve.pdf} \label{fig:ridgeCurve}}
-\hfill
-\subfigure[Comparison of ridge regression with and without feature transformation. The improvement is very little and might be insignificant.]{\includegraphics[width=2.7in]{figures/summary.pdf} \label{fig:summary}}
-\subfigure[Learning curve. Blue is training data and red is test data.]{\includegraphics[width=4in]{figures/learningCurve.pdf} \label{fig:learnCurve}}
-\caption{}
-\end{figure}
+%\begin{figure}[!h]
+%\center
+%\subfigure[Ridge regression for a 50-50 split.]{\includegraphics[width=2.5in]{figures/ridgeCurve.pdf} \label{fig:ridgeCurve}}
+%\hfill
+%\subfigure[Comparison of ridge regression with and without feature transformation. The improvement is very little and might be insignificant.]{\includegraphics[width=2.7in]{figures/summary.pdf} \label{fig:summary}}
+%\subfigure[Learning curve. Blue is training data and red is test data.]{\includegraphics[width=4in]{figures/learningCurve.pdf} \label{fig:learnCurve}}
+%\caption{}
+%\end{figure}
 
 
 \section{Summary}
