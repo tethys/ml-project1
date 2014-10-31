@@ -22,7 +22,7 @@ function beta = logisticRegression( varargin )
   for k = 1 : maxIters
       [cost, grad] = computeCostGradLogisticRegression(y, tX, beta, 0);
       beta = beta - alpha .* grad;
-      fprintf(1, 'current cost %3.3f\n', cost);
+     % fprintf(1, 'current cost %3.3f\n', cost);
   end
   
 end
