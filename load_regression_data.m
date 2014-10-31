@@ -1,15 +1,21 @@
-function [X_train, y_train, X_test] = load_regression_data
+function [X_train, y_train, X_test] = load_regression_data(th)
 
-clear all
+clear data
 data = load('Rome_regression.mat');
+X_train = [data.X_train(:,1:35) data.X_train(:,37:end)];
+X_test = [data.X_test(:,1:35) data.X_test(:,37:end)];
 D = size(data.X_train,2);
 
 %%% Remove outliers
-indices = (data.y_train < 4900);
+if th == 0
+    indices = (data.y_train < 4900);
+else
+    indices = (data.y_train >=4900);
+end
 y_train = data.y_train(indices);
-X_train = data.X_train(indices,:);
+X_train = X_train(indices,:);
 %% Do we remove here outliers??
-X_test = data.X_test;
+
 N = size(X_train, 1);
 
 
