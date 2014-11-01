@@ -74,7 +74,7 @@ After looking at every feature individually, we noticed that feature 36 offers a
 We visually observed some linear correlations between certain features such as feature 2 and 24, 13 and 16, 17 and 20, but we decided to keep them since we did not have time to experiment with their removal or to test their signifcance.
 \textcolor{red}{TODO} We also removed some outliers using
 
-\subsection{Baseline methods}
+\subsection{Ridge regression Baseline methods}
  We experimented with least squares using the normal equations, the least squares using gradient descent with alpha.  In both cases we obtained the same result. TODO talk about ill conditioned matriices.
  We report here our best results and parameters for every model. 
  For finding lambda we used 5 fold cross validation. We can see in figure [] the best results for this.
@@ -84,8 +84,28 @@ We visually observed some linear correlations between certain features such as f
 
 
 \subsection{Feature transformations}
-We tried to plot
+We tried etc
 
+
+\section{Classification}
+\subsection{Data description}
+We have a two-class classification problem. The training data $Xtrain$ contains 1500 observations, each 32 dimensional. One training sample has 31 real valued features and 1 categorical feature, the 14th feature. Our task is to predict the category for unseen test data, consisting in 1500 samples. We measure the accuracy of our estimation using $RMSE$, 0-1 Loss and etc. 
+
+\subsection{Data visualization and cleaning}
+We noticed that the samples were not equally distributed among classes, about $35\%$ of the samples were coming from one class and $65\%$ from the other. The data was again not centered as seen from Fig .
+We noticed more outliers in the data of classification than in the one from regression. What number
+{%%#figures/distribution_classification.png}
+\begin{figure}[h]
+  \begin{subfigure}[b]{0.7\textwidth}
+   \includegraphics[width=\textwidth]{figures/ClassificationDistr.pdf}
+    \caption{Mean and standard deviation for the training data features. The input is not norma-\newline lised and contains outliers.}
+    \label{fig:dist_classification}
+  \end{subfigure}
+  \caption{• Data visualization. }
+\end{figure}
+
+\subsection{Logistic regression}
+\subsection{Feature transformation}
 
 \section{Summary}
 In this report, we analyzed a regression dataset and found that ridge regression is a reasonable fit. We estimate that the average test error is 1.213 ($\pm$ 0.02). We tried some feature transformation and found that there is a small improvement giving us a test error of around 1.198 ($\pm$ 0.015). This improvement, however, is not significant.
