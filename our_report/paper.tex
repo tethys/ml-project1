@@ -57,14 +57,14 @@ The predicted values were real values in $[1000,7000]$ and seemed to be grouped 
 After looking at every feature individually, we noticed that feature 36 offers a clear separation of the two blobs (see $Fig.$ \ref{fig:feature36}). We therefore chose to fit two models, one in which feature 36 has values $>1.4$ (after normalization) and one in which it is smaller, corresponding to smaller predicted values. 
 
 
-\begin{figure}[h]
-  \begin{subfigure}[b]{0.5\textwidth}
-   \includegraphics[width=\textwidth]{figures/dist_regression.png}
+\begin{figure}[ht]
+  \begin{subfigure}[b]{0.45\textwidth}
+   \includegraphics[width=\textwidth]{figures/distribution_regression_crop.pdf}
     \caption{Mean and standard deviation for the first 36 real\newline valued variables of Xtrain. The input is not norma-\newline lised and feature 36 is the only negative one.}
     \label{fig:dist_regression}
   \end{subfigure}
-  \begin{subfigure}[b]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{figures/feature36.png}
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{figures/feature36_crop.pdf}
     \caption{Feature 36 versus output values. X = 1.4 (black line) and y = 4900 (red line)  provide a good separation of the two blobs.}
     \label{fig:feature36}
   \end{subfigure}
@@ -77,23 +77,37 @@ If the input is normally distributed with mean 0 and std 1, then
  $99.99\%$ of them appear between the values -3.891 and 3.891. We therefore remove any points that are outside this interval, considering them outliers.
 
 \subsection{Ridge regression Baseline methods}
- We experimented with least squares using the normal equations, the least squares using gradient descent with alpha.  In both cases we obtained the same result. TODO talk about ill conditioned matriices.
- We report here our best results and parameters for every model. 
- For finding lambda we used 5 fold cross validation. We can see in figure [] the best results for this.
- The matrix was ill conditioned meaning some of the features were correlated, as expected also from our visualization. As Expected leastSquares gave NaN. We observed ridge regression did not improve much, we used a very small lambda. However, when we used polynomial features of degree 3,  with the same lambda and alpha, we obtained a significant improvement.
  
- Remove outliers for every feature. Plot the features also for the other regression
-
 
 \subsection{Feature transformations}
 We tried polynomial and exponential transformations of the features.
-For both blobs, we noticed this improved significantly the error on both the training and the validation set.
+The exponential transformation did not prove to work well and we focused on polynomial regression.
+We only transformed the first 35 variables and kept the categorical variables as they are since  polynomial transformation of categorical variables does not have an intuitive interpretation. 
+
+The degree of the polynomial was varied from 1 to 10 for both blob-modelst. In $Fig$\ref{fig:degree_blob1},\ref{fig:degre_blob2} we plotted the mean training and validation rmse error only the degree varied between 2 - 10 and 2 - 6 respectively for readability (for other values the error was too big).
+
 Using 5-fold cross validation with $\lambda = 1e-5, \alpha = 0.1$ we
-noticed for the first blob we could use a polynomial of degree 3. For the second blob, using  $\lambda = 0.001, \alpha = 0.1$ we obtain a best fit for a polynomial of degree 2.
-In figure you see a plot of the mean training and validation error.
+notice for the first blob, RMSE train and validation is smaller for  a polynomial of degree 3. For the second blob, using  $\lambda = 0.001, \alpha = 0.1$ we obtain a best fit for a polynomial of degree 2.
+
+\begin{figure}[h]
+  \begin{subfigure}[b]{0.45\textwidth}
+   \includegraphics[width=\textwidth]{figures/degree_polynomial_blob1_crop.pdf}
+    \caption{First Blob. Mean RMSE for training set \newline (blue curve) and testing (red curve) versus poly-\newline nomial degree. The errors were computed using\newline 5-fold cross-validation.}
+    \label{fig:degree_blob1}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{figures/degree_polynomial_blob2_crop.pdf}
+    \caption{Second Blob. Mean RMSE for training set (blue curve) and testing (red curve) versus polynomial degree. The errors were computed using 5-fold cross-validation.}
+    \label{fig:degre_blob2}
+  \end{subfigure}
+  \caption{• Selection of polynomial degree}
+\end{figure}
 
 We increased lambda to prevent overfitting, since we have 10 times less samples for the second blob. However, we still noticed that our RMSE for the validation set  was  bigger for the second blob. This might be due to the fact that we have a very small set for both training and testing of the second model.
 
+Both polynomial regression models significantly outperform the normal ridge regression, which gave a RMSE > 100.
+
+Note also that our final RMSE (reported on the whole training data) is smaller that the sum of the two RMSE.
 
 \section{Classification}
 \subsection{Data description}
@@ -107,7 +121,7 @@ We noticed more outliers in the data of classification than in the one from regr
 {%%#figures/distribution_classification.png}
 \begin{figure}[h]
   \begin{subfigure}[b]{0.7\textwidth}
-   \includegraphics[width=\textwidth]{figures/ClassificationDistr.pdf}
+   \includegraphics[width=\textwidth]{figures/classification_distribution.pdf}
     \caption{Mean and standard deviation for the training data features. The input is not norma-\newline lised and contains outliers.}
     \label{fig:dist_classification}
   \end{subfigure}
@@ -118,11 +132,9 @@ We noticed more outliers in the data of classification than in the one from regr
 \subsection{Feature transformation}
 
 \section{Summary}
-In this report, we analyzed a regression dataset and found that ridge regression is a reasonable fit. We estimate that the average test error is 1.213 ($\pm$ 0.02). We tried some feature transformation and found that there is a small improvement giving us a test error of around 1.198 ($\pm$ 0.015). This improvement, however, is not significant.
 
 
 \subsubsection*{Acknowledgments}
-We would like to thank Timur for making the dataset for this study, Carlos and Ilija to help conduct the experiments, and all the students who attended the session making it exciting for us. All the code, as well as this report, was written by Emti. 
 
 \subsubsection*{References}
 

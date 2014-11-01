@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.10.24)  30 OCT 2014 20:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.10.24)  1 NOV 2014 17:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -211,29 +211,9 @@ Package graphics Info: Driver file: pdftex.def on input line 91.
 \Gin@req@height=\dimen110
 \Gin@req@width=\dimen111
 )
-(/usr/local/texlive/2014/texmf-dist/tex/latex/subfigure/subfigure.sty
-Package: subfigure 2002/03/15 v2.1.5 subfigure package
-\subfigtopskip=\skip44
-\subfigcapskip=\skip45
-\subfigcaptopadj=\dimen112
-\subfigbottomskip=\skip46
-\subfigcapmargin=\dimen113
-\subfiglabelskip=\skip47
-\c@subfigure=\count103
-\c@lofdepth=\count104
-\c@subtable=\count105
-\c@lotdepth=\count106
-
-****************************************
-* Local config file subfigure.cfg used *
-****************************************
-(/usr/local/texlive/2014/texmf-dist/tex/latex/subfigure/subfigure.cfg)
-\subfig@top=\skip48
-\subfig@bottom=\skip49
-)
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2013/01/14 v2.14 AMS math features
-\@mathmargin=\skip50
+\@mathmargin=\skip44
 
 For additional information on amsmath, use the `?' option.
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amstext.sty
@@ -242,49 +222,49 @@ Package: amstext 2000/06/29 v2.01
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks15
-\ex@=\dimen114
+\ex@=\dimen112
 ))
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
-\pmbraise@=\dimen115
+\pmbraise@=\dimen113
 )
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
-\inf@bad=\count107
+\inf@bad=\count103
 LaTeX Info: Redefining \frac on input line 210.
-\uproot@=\count108
-\leftroot@=\count109
+\uproot@=\count104
+\leftroot@=\count105
 LaTeX Info: Redefining \overline on input line 306.
-\classnum@=\count110
-\DOTSCASE@=\count111
+\classnum@=\count106
+\DOTSCASE@=\count107
 LaTeX Info: Redefining \ldots on input line 378.
 LaTeX Info: Redefining \dots on input line 381.
 LaTeX Info: Redefining \cdots on input line 466.
 \Mathstrutbox@=\box28
 \strutbox@=\box29
-\big@size=\dimen116
+\big@size=\dimen114
 LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
-\macc@depth=\count112
-\c@MaxMatrixCols=\count113
+\macc@depth=\count108
+\c@MaxMatrixCols=\count109
 \dotsspace@=\muskip11
-\c@parentequation=\count114
-\dspbrk@lvl=\count115
+\c@parentequation=\count110
+\dspbrk@lvl=\count111
 \tag@help=\toks16
-\row@=\count116
-\column@=\count117
-\maxfields@=\count118
+\row@=\count112
+\column@=\count113
+\maxfields@=\count114
 \andhelp@=\toks17
-\eqnshift@=\dimen117
-\alignsep@=\dimen118
-\tagshift@=\dimen119
-\tagwidth@=\dimen120
-\totwidth@=\dimen121
-\lineht@=\dimen122
+\eqnshift@=\dimen115
+\alignsep@=\dimen116
+\tagshift@=\dimen117
+\tagwidth@=\dimen118
+\totwidth@=\dimen119
+\lineht@=\dimen120
 \@envbody=\toks18
-\multlinegap=\skip51
-\multlinetaggap=\skip52
+\multlinegap=\skip45
+\multlinetaggap=\skip46
 \mathdisplay@stack=\toks19
 LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
@@ -301,60 +281,82 @@ Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
 (/usr/local/texlive/2014/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip53
-\bibsep=\skip54
+\bibhang=\skip47
+\bibsep=\skip48
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count119
-) (./paper.aux)
+\c@NAT@ctr=\count115
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
+\captionmargin=\dimen121
+\captionmargin@=\dimen122
+\captionwidth=\dimen123
+\caption@tempdima=\dimen124
+\caption@indent=\dimen125
+\caption@parindent=\dimen126
+\caption@hangindent=\dimen127
+)
+\c@ContinuedFloat=\count116
+Package caption Info: hyperref package is loaded.
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2013/02/03 v1.1-62 Sub-captions (AR)
+\c@subfigure=\count117
+\c@subtable=\count118
+)
+(./paper.aux)
 \openout1 = `paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 35.
-
-(/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 36.
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 \AtBeginShipoutBox=\box30
 
 (/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count120
-\scratchdimen=\dimen123
+\scratchcounter=\count119
+\scratchdimen=\dimen128
 \scratchbox=\box31
-\nofMPsegments=\count121
-\nofMParguments=\count122
+\nofMPsegments=\count120
+\nofMParguments=\count121
 \everyMPshowfont=\toks20
-\MPscratchCnt=\count123
-\MPscratchDim=\dimen124
-\MPnumerator=\count124
-\makeMPintoPDFobject=\count125
+\MPscratchCnt=\count122
+\MPscratchDim=\dimen129
+\MPnumerator=\count123
+\makeMPintoPDFobject=\count124
 \everyMPtoPDFconversion=\toks21
 )
-Package hyperref Info: Link coloring OFF on input line 35.
+Package hyperref Info: Link coloring OFF on input line 36.
  (/usr/local/texlive/2014/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
 (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count126
+\c@section@level=\count125
 )
-LaTeX Info: Redefining \ref on input line 35.
-LaTeX Info: Redefining \pageref on input line 35.
-LaTeX Info: Redefining \nameref on input line 35.
+LaTeX Info: Redefining \ref on input line 36.
+LaTeX Info: Redefining \pageref on input line 36.
+LaTeX Info: Redefining \nameref on input line 36.
 
 (./paper.out) (./paper.out)
 \@outlinefile=\write3
@@ -376,118 +378,126 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 38.
-LaTeX Font Info:    Try loading font information for U+msa on input line 38.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 39.
+LaTeX Font Info:    Try loading font information for U+msa on input line 39.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 38.
+LaTeX Font Info:    Try loading font information for U+msb on input line 39.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 38.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 38.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 39.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 39.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 39.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 40.
 
-<images/feature36.pdf, id=28, 614.295pt x 794.97pt>
-File: images/feature36.pdf Graphic file (type pdf)
- <use images/feature36.pdf>
-Package pdftex.def Info: images/feature36.pdf used on input line 60.
-(pdftex.def)             Requested size: 180.67499pt x 233.81056pt.
+<figures/distribution_regression_crop.pdf, id=50, 600.5637pt x 222.59161pt>
+File: figures/distribution_regression_crop.pdf Graphic file (type pdf)
 
+<use figures/distribution_regression_crop.pdf>
+Package pdftex.def Info: figures/distribution_regression_crop.pdf used on input
+ line 62.
+(pdftex.def)             Requested size: 178.86702pt x 66.29568pt.
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+<figures/feature36_crop.pdf, id=51, 502.27646pt x 384.47641pt>
+File: figures/feature36_crop.pdf Graphic file (type pdf)
 
-<figures/boxplotX.pdf, id=29, 482.80376pt x 372.39125pt>
-File: figures/boxplotX.pdf Graphic file (type pdf)
+<use figures/feature36_crop.pdf>
+Package pdftex.def Info: figures/feature36_crop.pdf used on input line 67.
+(pdftex.def)             Requested size: 178.86702pt x 136.9154pt.
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no ¢ in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no ¢ in font ptmr7t!
 
-<use figures/boxplotX.pdf>
-Package pdftex.def Info: figures/boxplotX.pdf used on input line 71.
-(pdftex.def)             Requested size: 252.94499pt x 195.09921pt.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<figures/histY.pdf, id=30, 526.96875pt x 408.52625pt>
-File: figures/histY.pdf Graphic file (type pdf)
- <use figures/histY.pdf>
-Package pdftex.def Info: figures/histY.pdf used on input line 73.
-(pdftex.def)             Requested size: 180.67499pt x 140.069pt.
-
-[1
+ [1
 
 {/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<figures/ridgeCurve.pdf, id=48, 509.905pt x 393.47pt>
-File: figures/ridgeCurve.pdf Graphic file (type pdf)
+<figures/degree_polynomial_blob1_crop.pdf, id=65, 482.04092pt x 383.75368pt>
+File: figures/degree_polynomial_blob1_crop.pdf Graphic file (type pdf)
 
-<use figures/ridgeCurve.pdf>
-Package pdftex.def Info: figures/ridgeCurve.pdf used on input line 96.
-(pdftex.def)             Requested size: 180.67499pt x 139.42165pt.
+<use figures/degree_polynomial_blob1_crop.pdf>
+Package pdftex.def Info: figures/degree_polynomial_blob1_crop.pdf used on input
+ line 94.
+(pdftex.def)             Requested size: 178.86702pt x 142.39651pt.
 
-<figures/summary.pdf, id=49, 475.7775pt x 356.33125pt>
-File: figures/summary.pdf Graphic file (type pdf)
+<figures/degree_polynomial_blob2_crop.pdf, id=66, 489.99057pt x 377.24939pt>
+File: figures/degree_polynomial_blob2_crop.pdf Graphic file (type pdf)
 
-<use figures/summary.pdf>
-Package pdftex.def Info: figures/summary.pdf used on input line 98.
-(pdftex.def)             Requested size: 195.12877pt x 146.14024pt.
+<use figures/degree_polynomial_blob2_crop.pdf>
+Package pdftex.def Info: figures/degree_polynomial_blob2_crop.pdf used on input
+ line 99.
+(pdftex.def)             Requested size: 178.86702pt x 137.70926pt.
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no ¢ in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no ¢ in font ptmr7t!
+ [2 <./figures/distribution_regression_crop.pdf> <./figures/feature36_crop.pdf>
+ <./figures/degree_polynomial_blob1_crop.pdf> <./figures/degree_polynomial_blob
+2_crop.pdf>]
+<figures/classification_distribution.pdf, id=91, 563.70598pt x 396.76227pt>
+File: figures/classification_distribution.pdf Graphic file (type pdf)
 
-<figures/learningCurve.pdf, id=50, 484.81125pt x 372.39125pt>
-File: figures/learningCurve.pdf Graphic file (type pdf)
-
-<use figures/learningCurve.pdf>
-Package pdftex.def Info: figures/learningCurve.pdf used on input line 99.
-(pdftex.def)             Requested size: 289.07999pt x 222.05568pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[2 <./images/feature36.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 113.
- [3 <./figures/boxplotX.pdf> <./figures/histY.pdf>] [4 <./figures/ridgeCurve.pd
-f> <./figures/summary.pdf> <./figures/learningCurve.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 113.
+<use figures/classification_distribution.pdf>
+Package pdftex.def Info: figures/classification_distribution.pdf used on input 
+line 124.
+(pdftex.def)             Requested size: 278.23827pt x 195.83792pt.
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no ¢ in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no ¢ in font ptmr7t!
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 141.
+ [3 <./figures/classification_distribution.pdf>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 141.
  (./paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 113.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 113.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 141.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 141.
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: 52E60B40F53701E6C09246DB89739B37;341.
+(rerunfilecheck)             Checksum: 3021272975155ED2E41427ECEC3E4957;721.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 141.
+ )
+(\end occurred inside a group at level 1)
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 113.
- ) 
+### simple group (level 1) entered at line 121 ({)
+### bottom level 
 Here is how much of TeX's memory you used:
- 6956 strings out of 493117
- 99252 string characters out of 6135432
- 191152 words of memory out of 5000000
- 10290 multiletter control sequences out of 15000+600000
- 20116 words of font info for 54 fonts, out of 8000000 for 9000
+ 7827 strings out of 493117
+ 116554 string characters out of 6135432
+ 210718 words of memory out of 5000000
+ 11175 multiletter control sequences out of 15000+600000
+ 15467 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 37i,8n,39p,562b,329s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/te
-xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texl
-ive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texli
-ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texliv
-e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/
-2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/20
-14/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2014/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2014/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2014/tex
-mf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2014/texmf-dist/
-fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type
-1/urw/times/utmr8a.pfb>
-Output written on paper.pdf (4 pages, 229003 bytes).
+ 37i,9n,39p,394b,434s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc
+}</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
+usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></u
+sr/local/texlive/2014/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local
+/texlive/2014/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2
+014/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
+Output written on paper.pdf (3 pages, 192630 bytes).
 PDF statistics:
- 175 PDF objects out of 1000 (max. 8388607)
- 138 compressed objects within 2 object streams
- 22 named destinations out of 1000 (max. 500000)
- 79 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 135 PDF objects out of 1000 (max. 8388607)
+ 115 compressed objects within 2 object streams
+ 20 named destinations out of 1000 (max. 500000)
+ 114 words of extra memory for PDF output out of 10000 (max. 10000000)
 
