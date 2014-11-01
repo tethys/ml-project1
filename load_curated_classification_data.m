@@ -53,10 +53,5 @@ row_to_remove = sort(row_to_remove,'descend');
 X_train(row_to_remove,:)=[];
 y_train(row_to_remove,:)=[];
 
-[row_to_remove, ~] = find(X_test < -3.891);
-[temp, ~] = find(X_test > 3.891);
-row_to_remove = unique([row_to_remove ; temp]);
-row_to_remove = sort(row_to_remove,'descend');
-X_test(row_to_remove,:)=[];
 
 end
