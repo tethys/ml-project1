@@ -20,16 +20,17 @@ X_mean = mean(X_train);
 X_std = std(X_train);
 %% Normalize the data to have 0 mean and 1 std
 N = size(X_train,1);
-X_mean_rep = repmat(X_mean,[N, 1]);
-X_std_rep = repmat(X_std,[N,1]);
-X_train_normalised = X_train - X_mean_rep;
-X_train_normalised = X_train_normalised ./ X_std_rep;
+X_train_normalised = X_train;
 
 
 figure;
 scatterhist(X_train_normalised(:,36), y_train);
+hy = ylabel('y');
+hx = xlabel('Feature 36 for training data');
+set([hx; hy],'fontsize',18,'fontname','avantgarde','color',[.3 .3 .3]);
+grid on;
 hold on;
 plot([-3,5],[4800,4800],'LineWidth',2, 'Color','r')
-plot([1.4,1.4],[0,7000],'LineWidth',2, 'Color','k')
+plot([-12.5,-12.5],[0,7000],'LineWidth',2, 'Color','k')
 
 sum(X_train_normalised(:,36) > 1.4)
