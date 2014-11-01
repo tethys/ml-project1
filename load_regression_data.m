@@ -34,9 +34,11 @@ X_train = X_train - X_mean_rep;
 X_train = X_train ./ X_std_rep;
 
 %% Do the same for the test data
+X_mean_test = mean(X_test);
+X_std_test = std(X_test);
 N = size(X_test, 1);
-X_mean_rep = repmat(X_mean, [N,1]);
-X_std_rep = repmat(X_std, [N,1]);
+X_mean_rep = repmat(X_mean_test, [N,1]);
+X_std_rep = repmat(X_std_test, [N,1]);
 X_test = X_test - X_mean_rep;
 X_test = X_test ./ X_std_rep;
 
