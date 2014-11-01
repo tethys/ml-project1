@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.10.24)  1 NOV 2014 17:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.10.24)  1 NOV 2014 17:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -452,37 +452,46 @@ Missing character: There is no ¢ in font ptmr7t!
  [2 <./figures/distribution_regression_crop.pdf> <./figures/feature36_crop.pdf>
  <./figures/degree_polynomial_blob1_crop.pdf> <./figures/degree_polynomial_blob
 2_crop.pdf>]
+! Undefined control sequence.
+l.111 \TODO
+           {write here about best RMSE for both models separate, and for the...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
 <figures/classification_distribution.pdf, id=91, 563.70598pt x 396.76227pt>
 File: figures/classification_distribution.pdf Graphic file (type pdf)
 
 <use figures/classification_distribution.pdf>
 Package pdftex.def Info: figures/classification_distribution.pdf used on input 
-line 124.
-(pdftex.def)             Requested size: 278.23827pt x 195.83792pt.
+line 125.
+(pdftex.def)             Requested size: 198.7425pt x 139.8799pt.
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ¢ in font ptmr7t!
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ¢ in font ptmr7t!
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 141.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 142.
  [3 <./figures/classification_distribution.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 141.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 142.
  (./paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 141.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 141.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 142.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 142.
 Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: 3021272975155ED2E41427ECEC3E4957;721.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 141.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 142.
  )
 (\end occurred inside a group at level 1)
 
-### simple group (level 1) entered at line 121 ({)
+### simple group (level 1) entered at line 122 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
  7827 strings out of 493117
  116554 string characters out of 6135432
- 210718 words of memory out of 5000000
+ 210710 words of memory out of 5000000
  11175 multiletter control sequences out of 15000+600000
  15467 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -494,7 +503,7 @@ usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></u
 sr/local/texlive/2014/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local
 /texlive/2014/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2
 014/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on paper.pdf (3 pages, 192630 bytes).
+Output written on paper.pdf (3 pages, 192866 bytes).
 PDF statistics:
  135 PDF objects out of 1000 (max. 8388607)
  115 compressed objects within 2 object streams

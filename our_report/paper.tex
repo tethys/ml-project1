@@ -60,7 +60,7 @@ After looking at every feature individually, we noticed that feature 36 offers a
 \begin{figure}[ht]
   \begin{subfigure}[b]{0.45\textwidth}
    \includegraphics[width=\textwidth]{figures/distribution_regression_crop.pdf}
-    \caption{Mean and standard deviation for the first 36 real\newline valued variables of Xtrain. The input is not norma-\newline lised and feature 36 is the only negative one.}
+    \caption{Mean and standard deviation for the first 36 real valued variables of Xtrain. The input is not normalised and feature 36 is the only negative one.}
     \label{fig:dist_regression}
   \end{subfigure}
   \begin{subfigure}[b]{0.45\textwidth}
@@ -74,7 +74,7 @@ After looking at every feature individually, we noticed that feature 36 offers a
 We visually observed some linear correlations between certain features such as feature 2 and 24, 13 and 16, 17 and 20, but we decided to keep them since we did not have time to experiment with their removal or to test their signifcance. This is corroborated by the fact that $Xtrain$ is rank deficient, it has 57 columns after the use of dummy variables but rank 50.
 
 If the input is normally distributed with mean 0 and std 1, then
- $99.99\%$ of them appear between the values -3.891 and 3.891. We therefore remove any points that are outside this interval, considering them outliers.
+ $99.99\%$ of the samples appear between the values -3.891 and 3.891. We therefore remove any points that are outside this interval, considering them outliers.
 
 \subsection{Ridge regression Baseline methods}
  
@@ -84,10 +84,10 @@ We tried polynomial and exponential transformations of the features.
 The exponential transformation did not prove to work well and we focused on polynomial regression.
 We only transformed the first 35 variables and kept the categorical variables as they are since  polynomial transformation of categorical variables does not have an intuitive interpretation. 
 
-The degree of the polynomial was varied from 1 to 10 for both blob-modelst. In $Fig$\ref{fig:degree_blob1},\ref{fig:degre_blob2} we plotted the mean training and validation rmse error only the degree varied between 2 - 10 and 2 - 6 respectively for readability (for other values the error was too big).
+The degree of the polynomial was varied from 1 to 10 for both blob-models. In $Fig$\ref{fig:degree_blob1},\ref{fig:degre_blob2} we plotted the mean training and validation $RMSE$ for the degree varying only between 2 - 10 and 2 - 6 respectively for readability (for the other values the RMSE was too big).
 
 Using 5-fold cross validation with $\lambda = 1e-5, \alpha = 0.1$ we
-notice for the first blob, RMSE train and validation is smaller for  a polynomial of degree 3. For the second blob, using  $\lambda = 0.001, \alpha = 0.1$ we obtain a best fit for a polynomial of degree 2.
+notice that a polynomial of degree 3 is a good fit for the first model. Increasing it further leads to overfitting, since the training errors becomes very small and the validation error increases. For the second model, using  $\lambda = 0.001, \alpha = 0.1$ we obtain a best fit for a polynomial of degree 2.
 
 \begin{figure}[h]
   \begin{subfigure}[b]{0.45\textwidth}
@@ -103,26 +103,31 @@ notice for the first blob, RMSE train and validation is smaller for  a polynomia
   \caption{• Selection of polynomial degree}
 \end{figure}
 
-We increased lambda to prevent overfitting, since we have 10 times less samples for the second blob. However, we still noticed that our RMSE for the validation set  was  bigger for the second blob. This might be due to the fact that we have a very small set for both training and testing of the second model.
+We increased lambda to prevent overfitting, since we have 10 times less samples for the second model. However, we still noticed that our RMSE for the validation set  was  bigger for the second blob. This might be due to the fact that we have a very small set for both training and testing of the second model.
 
 Both polynomial regression models significantly outperform the normal ridge regression, which gave a RMSE > 100.
 
-Note also that our final RMSE (reported on the whole training data) is smaller that the sum of the two RMSE.
+Model1 mean  5.4649( std 0.0579) mean 6.2188( std 0.4801)
+Model2 mean   11.7039( std 2.0178) mean  53.1940( std 14.5599)
+
+
+Note also that our final RMSE (reported on the whole training data) is smaller that the sum of the two separated RMSE.
+\TODO{write here about best RMSE for both models separate, and for the final one.}
 
 \section{Classification}
 \subsection{Data description}
 We have a two-class classification problem. The training data $Xtrain$ contains 1500 observations, each 32 dimensional. One training sample has 31 real valued features and 1 categorical feature, the 14th feature. Our task is to predict the category for unseen test data, consisting in 1500 samples. We measure the accuracy of our estimation using $RMSE$, $0-1 loss$ and $log-loss$. 
 
 \subsection{Data visualization and cleaning}
-We noticed that the samples were not equally distributed among classes, about $35\%$ of the samples were coming from one class and $65\%$ from the other. We changed the labeling from -1/1 to 0/1. 
+We noticed that the samples were not equally distributed among classes, about $35\%$ of the samples were coming from one class and $65\%$ from the other. We did not have time to study the implications of this on our model estimation. We changed the labeling from -1/1 to 0/1. 
 
 The training data was again not centered as seen from $Fig.$\ref{fig:dist_classification}
 We noticed more outliers in the data of classification than in the one from regression. After removing the outliers and changing feature 14 to a dummy variable we normalized the data to have 0 mean and std 1.
 {%%#figures/distribution_classification.png}
 \begin{figure}[h]
-  \begin{subfigure}[b]{0.7\textwidth}
+  \begin{subfigure}[b]{0.5\textwidth}
    \includegraphics[width=\textwidth]{figures/classification_distribution.pdf}
-    \caption{Mean and standard deviation for the training data features. The input is not norma-\newline lised and contains outliers.}
+    \caption{Mean and standard deviation for the training data features. The input is not normalised and contains outliers.}
     \label{fig:dist_classification}
   \end{subfigure}
   \caption{• Data visualization. }
