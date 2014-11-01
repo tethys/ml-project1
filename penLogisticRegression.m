@@ -4,7 +4,7 @@ function beta = penLogisticRegression(y,tX,alpha,lambda)
 
   % Initialize algorithm parametes
   maxIters = 1000;
-  beta = randn( size(tX, 2), 1 );
+  beta = zeros( size(tX, 2), 1 );
   
   err = 1/eps;
   

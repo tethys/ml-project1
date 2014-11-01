@@ -17,12 +17,22 @@ function beta = logisticRegression( varargin )
   end
   % Initialize algorithm parametes
   maxIters = 1000;
-  beta = randn( size(tX, 2), 1 );
+  beta = zeros( size(tX, 2), 1 );
+  
+  err = 1/eps;
+  
+  [Lold, ~] = computeCostGradLogisticRegression(y, tX, beta, 0);
 
-  for k = 1 : maxIters
+  k = 1;
+  while ( k <= maxIters && err > eps )
       [cost, grad] = computeCostGradLogisticRegression(y, tX, beta, 0);
       beta = beta - alpha .* grad;
      % fprintf(1, 'current cost %3.3f\n', cost);
+	 
+	 err = abs(Lold - cost);
+     Lold = cost;
+    
+     k = k + 1;
   end
   
 end
