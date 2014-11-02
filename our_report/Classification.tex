@@ -6,13 +6,22 @@ We noticed the samples were not equally distributed among classes, about $35\%$ 
 
 The training data was again not centered as seen in $Fig.$\ref{fig:dist_classification}
  After changing feature 14 to a dummy variable we normalized the data to have 0 mean and std 1. We noticed more outliers in the data of classification than in the one from regression. We removed outliers in a similar way as in the regression task which left us with 1424 samples (5$\%$ of the data).
+
+
 \begin{figure}[h]
-  \begin{subfigure}[b]{0.5\textwidth}
+	\begin{subfigure}[b]{0.5\textwidth}
    \includegraphics[width=\textwidth]{figures/classification_distribution.pdf}
     \caption{Mean and standard deviation for the training data features. The input is not normalised and contains outliers.}
     \label{fig:dist_classification}
   \end{subfigure}
-  \caption{• Data visualization. }
+  \hfill
+  \begin{subfigure}[b]{0.45\textwidth}
+   \includegraphics[clip, trim=4cm 9cm 3cm 10cm, width=\textwidth]{figures/Lambda_pLG.pdf}
+    \caption{Train and test error assessment with penalty factor ($\lambda$) for penalized logistic regression
+    for 50-50 split.}
+    \label{fig:Lambda_pLr}
+  \end{subfigure}
+  \hfill
 \end{figure}
 
 \subsection{Logistic Regression}
@@ -22,44 +31,38 @@ We applied Logistic Regression (logRegression) and Penalized Logistic Regression
 In penLogRegression, the choice of penalty factor $\lambda$ is crucial.  We sampled 400 values for $\lambda$s in the interval  $10^{-2}$ to $10^3$. As can be seen in $Fig.$\ref{fig:Lambda_pLr}, for small $\lambda$ values, training error is much lower than the test error while for large $\lambda$ values the test error gets as high as the training error which is a sign of under-fitting. 
 For small $\lambda$ values, the training and test error estimated in penLogisticRegression show very similar behavior with the ones for logRegression. 
 
-The same $\alpha$ value that is obtained for logRegression  also gives the best accuracy for penLogisticRegression. Increasing the value of $\alpha$ decreases all error estimations until a maximum $\alpha=2.0$ value which gives the best prediction accuracy.
+The same $\alpha$ value that is obtained for logRegression  also gives the best accuracy for penLogisticRegression. Increasing the value of $\alpha$ decreases all error estimations until around $\alpha=0.8$ value which gives the best prediction accuracy for our data.
 
+
+$Fig.$\ref{fig:comp_LR_pLR} shows the classification accuracy percentage  of logRegression and penLogRegression on the test data using 5-fold cross validation. The improvements with penLogRegression is little but might perform better on unseen data since it is more robust to outliers. Our best accuracy on the test data of $96.348\%$  (std of )is obtained using penLogRegression with $\lambda=0.03$ and $\alpha=0.8$. 
+
+For our best setups, we report three types of errors using $RMSE$, $0-1 loss$ and $log-loss$  in table \ref{table:test_errors}. penLogisticRegression consistently performs better.
 
 \begin{figure}[h]
-  \begin{subfigure}[b]{0.5\textwidth}
-   \includegraphics[clip, trim=4cm 9cm 3cm 10cm, width=\textwidth]{figures/Lambda_pLG.pdf}
-    \caption{Train and test error assessment with penalty factor ($\lambda$) for penalized logistic regression
-    for 50-50 split.}
-    \label{fig:Lambda_pLr}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}[b]{0.45\textwidth}
-    \includegraphics[clip, trim=4cm 10cm 3cm 10cm, width=\textwidth]{figures/comparison_LR_pLR.pdf}
-    \caption{Comparison of logistic regression and penalized logistic regression based on validation accuracy}
+  \begin{minipage}[b]{0.50\linewidth}
+    \centering
+    \begin{subfigure}[b]{0.8\textwidth}
+    \includegraphics[clip, trim=4cm 10cm 3.5cm 10cm, width=\textwidth]{figures/comparison_LR_pLR.pdf}
+    \caption{• Comparison of logistic regression and penalized logistic regression based on validation accuracy}
     \label{fig:comp_LR_pLR}
   \end{subfigure}
-\end{figure}
-
-
-$Fig.$\ref{fig:comp_LR_pLR} shows the classification accuracy percentage  of logRegression and penLogRegression on the test data using 5-fold cross validation. The improvements with penLogRegression is little but might perform better on unseen data since it is more robust to outliers. Our best accuracy on the test data of $97.318\%$  (std of )is obtained using penLogRegression with $\lambda=0.03$ and $\alpha=2.0$. 
-
-For our best setups, we report three types of errors $\lambda=1.0$ using $RMSE$, $0-1 loss$ and $log-loss$  in table \ref{table:test_errors}. penLogisticRegression consistently performs better.
-
-
-\begin{table}[h!]
-\begin{center}
-    \begin{tabular}{ | l | l | l | p{5cm} |}
+  \end{minipage}%
+  \begin{minipage}[b]{0.40\linewidth}
+    \centering
+    \begin{tabular}{ | l | l | l | p{1.2cm} |}
     \hline
     Method & RMSE & 0-1-Loss & Log-Loss \\ \hline
-    Logistic Regression & 0.147896 & 0.020743 & 105.151844 \\ \hline
-    Pen Logistic Regression & 0.122288 & 0.014693 & 75.380959 \\ \hline
+    LogRegression & 0.17 & 0.033 & 161.32 \\ \hline
+    PenLogRegression & 0.15 & 0.0267 & 132.34 \\ \hline
     \end{tabular}
-\end{center}
-\caption{Best predicted error estimates for the test data}
-\label{table:test_errors}
-\end{table}
+    \caption{Best predicted error estimates for the test data}
+	\label{table:test_errors}
+    \par\vspace{60pt}
+  \end{minipage}
+\label{fig:test}
+\caption{• Comparison of logistic regression and penalized logistic regression based on validation accuracy}
+\end{figure} 
  
-
 \subsection{Feature transformation}
 We experimented with polynomial and exponential transformation of the values but did not manage to significantly improve the previous results obtained using penLogRegression. Our best model used a polynomial of degree 2 transformation of every feature, $\alpha=2$ $\lambda=0.1$, which had a recognition rate of approx 95.77 (with std 1.056). All other models performed much worse.
 Since in general it is better to explain the correlation in the data using simpler models, we decided to report our best predictions using penLogisticRegression.
