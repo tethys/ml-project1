@@ -6,7 +6,6 @@ We noticed the samples were not equally distributed among classes, about $35\%$ 
 
 The training data was again not centered as seen in $Fig.$\ref{fig:dist_classification}
  After changing feature 14 to a dummy variable we normalized the data to have 0 mean and std 1.We noticed more outliers in the data of classification than in the one from regression. We removed outliers the same way as in the regression task which left us with 1431 samples (4$\%$ of the data).
-{%%#figures/distribution_classification.png}
 \begin{figure}[h]
   \begin{subfigure}[b]{0.5\textwidth}
    \includegraphics[width=\textwidth]{figures/classification_distribution.pdf}
@@ -18,11 +17,11 @@ The training data was again not centered as seen in $Fig.$\ref{fig:dist_classifi
 
 \subsection{Logistic Regression}
 
-We applied Logistic regression and Penalized logistic Regression using gradient descent. Best results are obtained on the train accuracy of $97.14\%$ with value 10.0 for $\alpha$. We obtained the optimal $\alpha$ value for logistic regression classifier using cross validation technique where we split $50\%$ of the data for validation.
+We applied Logistic Regression (logRegression) and Penalized Logistic Regression (penLogRegression) using gradient descent with learning rate $\alpha$. Best results are obtained on the train accuracy of $97.14\%$ with $\alpha = 10$. We obtained the optimal $\alpha$ for logRegression   and penalty factor $\lambda$ for penLogisticRegression using the cross validation technique with a $50\%-50\%$ split for training and validation data.
 
-In penalized logistic regression, the choice of penalty factor ($\lambda$) is crucial. Therefore, we used cross validation procedure to estimate $\lambda$ when we divide $50\%$ of the data as test data and $50\%$ of the data as training data. The value of $\lambda$ varies from $10^{-2}$ to $10^3$ with 400 points in between. As can be seen in Figure \ref{fig:Lambda_pLr}, for smaller $\lambda$ values, training error is much lower than the test error while the test error gets as high as the training error  as the $\lambda$ increases which is a sign of under-fitting. 
+In penLogRegression, the choice of penalty factor ($\lambda$) is crucial.  We sampled 400 values for $\lambda$s in the interval  $10^{-2}$ to $10^3$. As can be seen in Figure \ref{fig:Lambda_pLr}, for small $\lambda$ values, training error is much lower than the test error while for large $\lambda$ values the test error gets as high as the training error which is a sign of under-fitting. 
 
-For smaller $\lambda$ values, the training and test error estimated in penalized logistic regression shows very similar behavior in the training and test error estimated in logistic regression. The same $\alpha$ value that is obtained for the logistic regression method also gives the best accuracy for penalized logistic regression method.
+For small $\lambda$ values, the training and test error estimated in penLogisticRegression show very similar behavior with the ones for logRegression. The same $\alpha$ value that is obtained for logRegression  also gives the best accuracy for penLogisticRegression.
 
 \begin{figure}[h]
   \begin{subfigure}[b]{0.5\textwidth}
@@ -39,8 +38,9 @@ For smaller $\lambda$ values, the training and test error estimated in penalized
   \end{subfigure}
 \end{figure}
 
-Best results are obtained on the test accuracy of $97.318\%$ with the values 0.1 for ($\lambda$) and 10.0 for ($\alpha$).
-\ref{fig:comp_LR_pLR} shows the comparison of the logistic regression and penalized logistic regression based on the classification accuracy percentage over the test data. The improvements that is captured with the penalized logistic regression is little but significant.  
+
+\ref{fig:comp_LR_pLR} shows the classification accuracy percentage  of logRegression and penLogRegression on the test data (4-fold cross validation). The improvements with penLogRegression is little but significant.  
+Best results are obtained on the test accuracy of $97.318\%$ with $\lambda=0.5$ and ($\alpha=1$).
 
 \begin{table}[h!]
 \begin{center}
@@ -55,7 +55,7 @@ Best results are obtained on the test accuracy of $97.318\%$ with the values 0.1
 \label{table:test_errors}
 \end{table}
  
-The table \ref{table:test_errors} shows error measurements of the test data with $\alpha=10.0$ and $\lambda=1.0$ using $RMSE$, $0-1 loss$ and $log-loss$. Increasing the value of $\alpha$ decreases all error estimations until a maximum $\lambda=10.0$ value and we obtained the best prediction accuracy with this value for the $\lambda$.
+The table \ref{table:test_errors} shows error measurements of the test data with $\alpha=10.0$ and $\lambda=1.0$ using $RMSE$, $0-1 loss$ and $log-loss$. Increasing the value of $alpha$ decreases all error estimations until a maximum $alpha=10.0$ value which gives the best prediction accuracy.
 
 \subsection{Feature transformation}
 We experimented with polynomial, exponential, sqrt(abs*)) of the values
