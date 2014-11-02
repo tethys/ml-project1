@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.10.24)  2 NOV 2014 19:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.10.24)  2 NOV 2014 20:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -474,36 +474,41 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: figures/Lambda_pLG.pdf Graphic file (type pdf)
 
 <use figures/Lambda_pLG.pdf>
-Package pdftex.def Info: figures/Lambda_pLG.pdf used on input line 28.
+Package pdftex.def Info: figures/Lambda_pLG.pdf used on input line 30.
 (pdftex.def)             Requested size: 198.7425pt x 152.05879pt.
 
 <figures/comparison_LR_pLR.pdf, id=95, 597.23125pt x 845.1575pt>
 File: figures/comparison_LR_pLR.pdf Graphic file (type pdf)
 
 <use figures/comparison_LR_pLR.pdf>
-Package pdftex.def Info: figures/comparison_LR_pLR.pdf used on input line 35.
+Package pdftex.def Info: figures/comparison_LR_pLR.pdf used on input line 37.
 (pdftex.def)             Requested size: 178.86702pt x 124.06798pt.
 
 Underfull \vbox (badness 1502) has occurred while \output is active []
 
- [3])
-Underfull \vbox (badness 5431) has occurred while \output is active []
-
- [4 <./figures/Lambda_pLG.pdf> <./figures/comparison_LR_pLR.pdf> <./figures/cla
-ssification_distribution.pdf>]
+ [3]
+[4 <./figures/Lambda_pLG.pdf> <./figures/comparison_LR_pLR.pdf> <./figures/clas
+sification_distribution.pdf>])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 140.
  [5]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 140.
  (./paper.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 140.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 140.
-Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: 9B1443F8D1B786E0B0CB34C57E66AD0A;721.
+
+
+Package rerunfilecheck Warning: File `paper.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `paper.out':
+(rerunfilecheck)             Before: 9B1443F8D1B786E0B0CB34C57E66AD0A;721
+(rerunfilecheck)             After:  97B9EEB26F96D61EB2EB14DD85F2252E;778.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 140.
  ) 
 Here is how much of TeX's memory you used:
- 7870 strings out of 493117
- 117229 string characters out of 6135432
+ 7871 strings out of 493117
+ 117243 string characters out of 6135432
  213365 words of memory out of 5000000
  11202 multiletter control sequences out of 15000+600000
  18569 words of font info for 49 fonts, out of 8000000 for 9000
@@ -519,10 +524,10 @@ e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2
 /texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2014/texmf-d
 ist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/
 type1/urw/times/utmr8a.pfb>
-Output written on paper.pdf (5 pages, 225139 bytes).
+Output written on paper.pdf (5 pages, 226031 bytes).
 PDF statistics:
- 172 PDF objects out of 1000 (max. 8388607)
- 143 compressed objects within 2 object streams
- 24 named destinations out of 1000 (max. 500000)
+ 174 PDF objects out of 1000 (max. 8388607)
+ 145 compressed objects within 2 object streams
+ 25 named destinations out of 1000 (max. 500000)
  136 words of extra memory for PDF output out of 10000 (max. 10000000)
 

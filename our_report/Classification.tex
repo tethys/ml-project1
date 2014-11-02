@@ -5,7 +5,7 @@ We have a two-class classification problem. The training data $Xtrain$ contains 
 We noticed the samples were not equally distributed among classes, about $35\%$ of the samples were coming from one class and $65\%$ from the other. We did not have time to study the implications of this on our model estimation. We changed the labeling from -1/1 to 0/1 because our cost function was better expressed using 0 and 1.
 
 The training data was again not centered as seen in $Fig.$\ref{fig:dist_classification}
- After changing feature 14 to a dummy variable we normalized the data to have 0 mean and std 1.We noticed more outliers in the data of classification than in the one from regression. We removed outliers the same way as in the regression task which left us with 1431 samples (4$\%$ of the data).
+ After changing feature 14 to a dummy variable we normalized the data to have 0 mean and std 1. We noticed more outliers in the data of classification than in the one from regression. We removed outliers in a similar way as in the regression task which left us with 1424 samples (5$\%$ of the data).
 \begin{figure}[h]
   \begin{subfigure}[b]{0.5\textwidth}
    \includegraphics[width=\textwidth]{figures/classification_distribution.pdf}
@@ -17,11 +17,13 @@ The training data was again not centered as seen in $Fig.$\ref{fig:dist_classifi
 
 \subsection{Logistic Regression}
 
-We applied Logistic Regression (logRegression) and Penalized Logistic Regression (penLogRegression) using gradient descent with learning rate $\alpha$. Best results are obtained on the train accuracy of $97.14\%$ with $\alpha = 10$. We obtained the optimal $\alpha$ for logRegression   and penalty factor $\lambda$ for penLogisticRegression using the cross validation technique with a $50\%-50\%$ split for training and validation data.
+We applied Logistic Regression (logRegression) and Penalized Logistic Regression (penLogRegression) using gradient descent with learning rate $\alpha$.  We obtained the optimal $\alpha$ for logRegression   and penalty factor $\lambda$ for penLogisticRegression using the cross validation technique with a $50\%-50\%$ split for training and validation data.
 
-In penLogRegression, the choice of penalty factor ($\lambda$) is crucial.  We sampled 400 values for $\lambda$s in the interval  $10^{-2}$ to $10^3$. As can be seen in Figure \ref{fig:Lambda_pLr}, for small $\lambda$ values, training error is much lower than the test error while for large $\lambda$ values the test error gets as high as the training error which is a sign of under-fitting. 
+In penLogRegression, the choice of penalty factor $\lambda$ is crucial.  We sampled 400 values for $\lambda$s in the interval  $10^{-2}$ to $10^3$. As can be seen in $Fig.$\ref{fig:Lambda_pLr}, for small $\lambda$ values, training error is much lower than the test error while for large $\lambda$ values the test error gets as high as the training error which is a sign of under-fitting. 
+For small $\lambda$ values, the training and test error estimated in penLogisticRegression show very similar behavior with the ones for logRegression. 
 
-For small $\lambda$ values, the training and test error estimated in penLogisticRegression show very similar behavior with the ones for logRegression. The same $\alpha$ value that is obtained for logRegression  also gives the best accuracy for penLogisticRegression.
+The same $\alpha$ value that is obtained for logRegression  also gives the best accuracy for penLogisticRegression. Increasing the value of $\alpha$ decreases all error estimations until a maximum $\alpha=2.0$ value which gives the best prediction accuracy.
+
 
 \begin{figure}[h]
   \begin{subfigure}[b]{0.5\textwidth}
@@ -39,8 +41,10 @@ For small $\lambda$ values, the training and test error estimated in penLogistic
 \end{figure}
 
 
-\ref{fig:comp_LR_pLR} shows the classification accuracy percentage  of logRegression and penLogRegression on the test data (4-fold cross validation). The improvements with penLogRegression is little but significant.  
-Best results are obtained on the test accuracy of $97.318\%$ with $\lambda=0.5$ and ($\alpha=1$).
+$Fig.$\ref{fig:comp_LR_pLR} shows the classification accuracy percentage  of logRegression and penLogRegression on the test data using 5-fold cross validation. The improvements with penLogRegression is little but might perform better on unseen data since it is more robust to outliers. Our best accuracy on the test data of $97.318\%$  (std of )is obtained using penLogRegression with $\lambda=0.03$ and $\alpha=2.0$. 
+
+For our best setups, we report three types of errors $\lambda=1.0$ using $RMSE$, $0-1 loss$ and $log-loss$  in table \ref{table:test_errors}. penLogisticRegression consistently performs better.
+
 
 \begin{table}[h!]
 \begin{center}
@@ -51,14 +55,13 @@ Best results are obtained on the test accuracy of $97.318\%$ with $\lambda=0.5$ 
     Pen Logistic Regression & 0.122288 & 0.014693 & 75.380959 \\ \hline
     \end{tabular}
 \end{center}
-\caption{Some prediction error estimates for the test data}
+\caption{Best predicted error estimates for the test data}
 \label{table:test_errors}
 \end{table}
  
-The table \ref{table:test_errors} shows error measurements of the test data with $\alpha=10.0$ and $\lambda=1.0$ using $RMSE$, $0-1 loss$ and $log-loss$. Increasing the value of $alpha$ decreases all error estimations until a maximum $alpha=10.0$ value which gives the best prediction accuracy.
 
 \subsection{Feature transformation}
-We experimented with polynomial, exponential, sqrt(abs*)) of the values
-but did not manage to improve the previous results obtained using penalized logistic regression. Our best model setup (alpha = lambda = degree =) had a recognition rate of approx 96$\%$, when we used a polynomial of degree 2.
-Since the model worked  and but not better just as it is
-and since simpler models are preferred, we considered this not to be so relevant.
+We experimented with polynomial and exponential transformation of the values but did not manage to significantly improve the previous results obtained using penLogRegression. Our best model used a polynomial of degree 2 transformation of the features, $\alpha=2$ $\lambda=0.1$, which had a recognition rate of approx 95.77 (with std 1.056). All other models performed much worse.
+Since in general it is better to explain the correlation in the data using simpler models, we decided to report our best predictions using penLogisticRegression.
+
+\subsection{Summary}
