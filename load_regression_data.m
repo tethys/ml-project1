@@ -27,11 +27,11 @@ X_std = std(X_train);
 low_limit = X_mean - 3.891 * X_std;
 high_limit = X_mean + 3.891 * X_std;
 row_to_remove = [];
-for i = 1 : size(data.X_train,2);
+for i = 1 : size(X_train,2)
     [temp, ~] = find(X_train(:,i) < low_limit(i));
     row_to_remove = [row_to_remove ; temp];
 end
-for i = 1 : size(data.X_train,2);
+for i = 1 : size(X_train,2)
     [temp, ~] = find(X_train(:,i) > high_limit(i));
     row_to_remove = [row_to_remove ; temp];
 end
@@ -45,11 +45,11 @@ X_mean = mean(X_train);
 X_std = std(X_train);
 
 %% Normalize train data to have 0 mean and 1 std
-N = size(X_train, 1);
-X_mean_rep = repmat(X_mean,[N,1]);
-X_std_rep = repmat(X_std,[N,1]);
-X_train = X_train - X_mean_rep;
-X_train = X_train ./ X_std_rep;
+N = size(X_train(:,1:(D-7)), 1);
+X_mean_rep = repmat(X_mean(:,1:(D-7)),[N,1]);
+X_std_rep = repmat(X_std(:,1:(D-7)),[N,1]);
+X_train(:,1:(D-7)) = X_train(:,1:(D-7)) - X_mean_rep;
+X_train(:,1:(D-7)) = X_train(:,1:(D-7)) ./ X_std_rep;
 
 %% Do the same for the relevant test data
 if th == 0
@@ -65,12 +65,10 @@ if ~isempty(categorical_data)
 end
 X_test = [X_test(:,1:(D-7)) temp];
 
-X_mean_test = mean(X_test);
-X_std_test = std(X_test);
-N = size(X_test, 1);
-X_mean_rep = repmat(X_mean_test, [N,1]);
-X_std_rep = repmat(X_std_test, [N,1]);
-X_test = X_test - X_mean_rep;
-X_test = X_test ./ X_std_rep;
+N = size(X_test(:,1:(D-7)), 1);
+X_mean_rep = repmat(X_mean(:,1:(D-7)), [N,1]);
+X_std_rep = repmat(X_std(:,1:(D-7)), [N,1]);
+X_test(:,1:(D-7)) = X_test(:,1:(D-7)) - X_mean_rep;
+X_test(:,1:(D-7)) = X_test(:,1:(D-7)) ./ X_std_rep;
 
 end

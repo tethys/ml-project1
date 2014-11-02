@@ -1,81 +1,56 @@
-%% Pre-processing Part
-% Loading the data
+%% Loading data - Fit parameters
+% First fitting
 close all
 clear all
 clc
-data = load('Rome_regression.mat');
-D = size(data.X_train,2);
-lambda = 1e-5;
 
-% Plotting the data before processing
-figure;
-hist(data.y_train);
-line([4500,4500],[0,500], 'Color','r', 'LineWidth', 3)
-title('Distribution of y training values')
+K = 5;
+alpha = 0.1;
+lambda = 1e-7;
+[X_train, y_train, X_test_1, ind_test_1] = load_regression_data(0);
+tX = [ones(size(y_train)) X_train];
 
+betaLS_1 = ridgeRegression(y_train, tX, lambda);
+rmseTr_1 = computeCostRMSE(y_train, tX, betaLS_1);
+fprintf(1,'RMSE using LeastSquares ridge regression for the first fitting: %3.3f\n', rmseTr_1);
 
-%% Processing - Training Part
-% Remove outliers
-indices = (data.y_train < 4500);
-y_train_all = data.y_train(indices);
-X_train_all = data.X_train(indices,:);
+[meanTrainError_1, meanValidationError_1]= KfoldCV(K, tX, y_train, 'ridgeRegression', alpha, lambda);
+fprintf(1, '\nTrain error: %3.3f\nValidation error: %3.3f\n\n', meanTrainError_1, meanValidationError_1);
 
-% Keep randomly 75% of the data for training
-percentage = 0.75;
-N = round(percentage * size(X_train_all,1));
-ind_train = randperm(size(X_train_all,1));
-ind_train = ind_train(1:N);
-% Remove the last features from the array
-X_train = X_train_all(ind_train,1:(D-7));
-y_train = y_train_all(ind_train,1);
+% Second fitting
+clearvars X_train y_train
 
-figure;
-hist(y_train);
+K = 5;
+[X_train, y_train, X_test_2, ind_test_2] = load_regression_data(1);
+tX = [ones(size(y_train)) X_train];
 
-% Compute mean and std of the training set
-X_mean = mean(X_train);
-X_std = std(X_train);
+betaLS_2 = ridgeRegression(y_train, tX, lambda);
+rmseTr_2 = computeCostRMSE(y_train, tX, betaLS_2);
+fprintf(1,'RMSE using LeastSquares ridge regression for the second fitting: %3.3f\n', rmseTr_2);
 
-% Normalize the data to have 0 mean and 1 std
-X_mean_rep = repmat(X_mean,[N, 1]);
-X_std_rep = repmat(X_std,[N,1]);
-X_train_normalised = X_train - X_mean_rep;
-X_train_normalised = X_train_normalised ./ X_std_rep;
+[meanTrainError_2, meanValidationError_2]= KfoldCV(K, tX, y_train, 'ridgeRegression', alpha, lambda);
+fprintf(1, '\nTrain error: %3.3f\nValidation error: %3.3f\n\n', meanTrainError_2, meanValidationError_2);
 
-% Try mean fitting
-beta0 = mean(y_train);
-err = computeCostMSE(y_train, ones(size(y_train))*beta0, 1);
-err = sqrt(err);
-fprintf(1,'RMSE using LeastSquares mean regression %3.3f \n', err);
+%% Prediction of the test data
+M = size(X_test_1,1) + size(X_test_2,1);
+y_test = zeros(M,1);
+tX_test_1 = [ones(size(X_test_1,1),1) X_test_1];
+tX_test_2 = [ones(size(X_test_2,1),1) X_test_2];
+for i = 1 : length(ind_test_1)
+    y_test(ind_test_1(i)) = tX_test_1(i,:) * betaLS_1;
+end
+for i = 1 : length(ind_test_2)
+    y_test(ind_test_2(i)) = tX_test_2(i,:) * betaLS_2;
+end
 
-% Try ridge regression
-tX = [ones(size(y_train)) X_train_normalised];
-betaLS = ridgeRegression(y_train, tX, lambda);
-rmseTr = computeCostMSE(y_train, tX, betaLS);
-rmseTr = sqrt(rmseTr);
-fprintf(1,'RMSE using LeastSquares ridge regression %3.3f \n', rmseTr);
+X_test(ind_test_1, :) = X_test_1;
+X_test(ind_test_2, :) = X_test_2;
+for i = 1 : size(X_test,2)
+    figure;
+    scatterhist(X_test(:,i), y_test);
+    pause;
+    close;
+end
 
-
-%% Processing - Validation Part
-% Try the model on the validation data
-ind_test = find(ismember(1:size(X_train_all,1), ind_train)==0);
-X_valid = X_train_all(ind_test,1:(D-7));
-y_valid = y_train_all(ind_test,1);
-
-% Normalize it with the same mean and std as the training data
-N = size(X_valid,1);
-X_mean_rep = repmat(X_mean,[N, 1]);
-X_std_rep = repmat(X_std,[N,1]);
-X_valid_normalised = X_valid - X_mean_rep;
-X_valid_normalised = X_valid_normalised ./ X_std_rep;
-
-% Error on validation set using mean prediciton
-err = computeCostMSE(y_valid, ones(size(y_valid))*beta0, 1);
-err = sqrt(err);
-fprintf(1,'RMSE Validation using LeastSquares mean prediction %3.3f \n', err);
-
-% Error on the validation using ridge prediction
-tX = [ones(size(y_valid)) X_valid_normalised];
-rmseTrVa = computeCostMSE(y_valid, tX, betaLS);
-rmseTrVa = sqrt(rmseTrVa);
-fprintf(1,'RMSE Validation using LeastSquares ridge prediction %3.3f \n', rmseTrVa);
+test_error = size(X_test_1,1)/size(X_test,1) * meanValidationError_1 + size(X_test_2,1)/size(X_test,1) * meanValidationError_2;
+fprintf(1,'\nPredicted RMSE for the test data: %3.3f\n', test_error);

@@ -1,13 +1,24 @@
-function beta = leastSquaresGD( varargin )
-% Summary of this function goes here
-%   Detailed explanation goes here
+function  beta = leastSquaresGD ( varargin )
+%
+% 'beta' computation for the method least Squares using Gradient Descent
+%
+% Mandatory inputs:
+% y      : y of the training dataset
+% tX     : X of the training dataset
+%
+% Optional inputs:
+% alpha : method parameter alpha
+%
+% Outputs:
+% beta   : estimated coefficients of the model
+%
 
   % Chech the arguments
   switch nargin
       case 2
           y = varargin{1};
           tX = varargin{2};
-          alpha = 10e-3;
+          alpha = 0.1;
       case 3
           y = varargin{1};
           tX = varargin{2};
@@ -20,12 +31,8 @@ function beta = leastSquaresGD( varargin )
   maxIters = 1000;
   k = 1;
   err = 1 ./ eps;
-  beta = randn( size(tX, 2), 1 );
-  Lold = computeCostRMSE(y, tX, beta);
-
-  % Termination of iterations
-  fprintf('Starting iterations, press Ctrl+c to break\n');
-
+  beta = randn( size( tX, 2 ), 1 );
+  Lold = computeCostRMSE( y, tX, beta );
 
   % Gradient descent iteration
   while ( k <= maxIters && err > eps )
