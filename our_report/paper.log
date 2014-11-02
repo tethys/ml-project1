@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.10.24)  2 NOV 2014 17:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.10.24)  2 NOV 2014 19:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -452,12 +452,17 @@ Missing character: There is no ¢ in font ptmr7t!
  [2 <./figures/distribution_regression_crop.pdf> <./figures/feature36_crop.pdf>
  <./figures/degree_polynomial_blob1_crop.pdf> <./figures/degree_polynomial_blob
 2_crop.pdf>]
-<figures/classification_distribution.pdf, id=91, 563.70598pt x 396.76227pt>
+(./Classification.tex
+
+LaTeX Warning: Reference `fig:dist_classification' on page 3 undefined on input
+ line 7.
+
+<figures/classification_distribution.pdf, id=90, 563.70598pt x 396.76227pt>
 File: figures/classification_distribution.pdf Graphic file (type pdf)
 
 <use figures/classification_distribution.pdf>
 Package pdftex.def Info: figures/classification_distribution.pdf used on input 
-line 135.
+line 12.
 (pdftex.def)             Requested size: 198.7425pt x 139.8799pt.
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
@@ -469,39 +474,65 @@ Missing character: There is no ¢ in font ptmr7t!
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 156.
-[3] [4 <./figures/classification_distribution.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 156.
- (./paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 156.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 156.
+<figures/Lambda_pLG.pdf, id=92, 597.23125pt x 845.1575pt>
+File: figures/Lambda_pLG.pdf Graphic file (type pdf)
+
+<use figures/Lambda_pLG.pdf>
+Package pdftex.def Info: figures/Lambda_pLG.pdf used on input line 29.
+(pdftex.def)             Requested size: 198.7425pt x 152.05879pt.
+
+<figures/comparison_LR_pLR.pdf, id=94, 597.23125pt x 845.1575pt>
+File: figures/comparison_LR_pLR.pdf Graphic file (type pdf)
+
+<use figures/comparison_LR_pLR.pdf>
+Package pdftex.def Info: figures/comparison_LR_pLR.pdf used on input line 36.
+(pdftex.def)             Requested size: 178.86702pt x 124.06798pt.
+ [3]) [4 <./figures/Lambda_pLG.pdf> <./figures/comparison_LR_pLR.pdf> <./figure
+s/classification_distribution.pdf>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 136.
+ [5]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 136.
+
+(./paper.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 136.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 136.
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: 3021272975155ED2E41427ECEC3E4957;721.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 156.
+(rerunfilecheck)             Checksum: 9B1443F8D1B786E0B0CB34C57E66AD0A;721.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 136.
  )
 (\end occurred inside a group at level 1)
 
-### simple group (level 1) entered at line 132 ({)
+### simple group (level 1) entered at line 9 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 7828 strings out of 493117
- 116560 string characters out of 6135432
- 210710 words of memory out of 5000000
- 11175 multiletter control sequences out of 15000+600000
- 15467 words of font info for 37 fonts, out of 8000000 for 9000
+ 7870 strings out of 493117
+ 117229 string characters out of 6135432
+ 213040 words of memory out of 5000000
+ 11202 multiletter control sequences out of 15000+600000
+ 18569 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 37i,9n,39p,542b,434s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,10n,39p,623b,510s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc
 }</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
-</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
-usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></u
-sr/local/texlive/2014/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local
-/texlive/2014/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2
-014/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on paper.pdf (4 pages, 194809 bytes).
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></
+usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
+r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/l
+ocal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/lo
+cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/loca
+l/texlive/2014/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texliv
+e/2014/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2014/tex
+mf-dist/fonts/type1/urw/times/utmr8a.pfb>
+Output written on paper.pdf (5 pages, 224874 bytes).
 PDF statistics:
- 139 PDF objects out of 1000 (max. 8388607)
- 118 compressed objects within 2 object streams
- 21 named destinations out of 1000 (max. 500000)
- 114 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 171 PDF objects out of 1000 (max. 8388607)
+ 142 compressed objects within 2 object streams
+ 24 named destinations out of 1000 (max. 500000)
+ 136 words of extra memory for PDF output out of 10000 (max. 10000000)
 

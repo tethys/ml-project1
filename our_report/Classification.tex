@@ -1,3 +1,21 @@
+\subsection{Data description}
+We have a two-class classification problem. The training data $Xtrain$ contains 1500 observations, each 32 dimensional. One training sample has 31 real valued features and 1 categorical feature, the 14th feature. Our task is to predict the category for unseen test data, consisting in 1500 samples. We measure the accuracy of our estimation using $RMSE$, $0-1 loss$ and $log-loss$. 
+
+\subsection{Data visualization and cleaning}
+We noticed the samples were not equally distributed among classes, about $35\%$ of the samples were coming from one class and $65\%$ from the other. We did not have time to study the implications of this on our model estimation. We changed the labeling from -1/1 to 0/1 because our cost function was better expressed using 0 and 1.
+
+The training data was again not centered as seen in $Fig.$\ref{fig:dist_classification}
+ After changing feature 14 to a dummy variable we normalized the data to have 0 mean and std 1.We noticed more outliers in the data of classification than in the one from regression. We removed outliers the same way as in the regression task which left us with 1431 samples (4$\%$ of the data).
+{%%#figures/distribution_classification.png}
+\begin{figure}[h]
+  \begin{subfigure}[b]{0.5\textwidth}
+   \includegraphics[width=\textwidth]{figures/classification_distribution.pdf}
+    \caption{Mean and standard deviation for the training data features. The input is not normalised and contains outliers.}
+    \label{fig:dist_classification}
+  \end{subfigure}
+  \caption{• Data visualization. }
+\end{figure}
+
 \subsection{Logistic Regression}
 
 We applied Logistic regression and Penalized logistic Regression using gradient descent. Best results are obtained on the train accuracy of $97.14\%$ with value 10.0 for $\alpha$. We obtained the optimal $\alpha$ value for logistic regression classifier using cross validation technique where we split $50\%$ of the data for validation.
@@ -38,3 +56,9 @@ Best results are obtained on the test accuracy of $97.318\%$ with the values 0.1
 \end{table}
  
 The table \ref{table:test_errors} shows error measurements of the test data with $\alpha=10.0$ and $\lambda=1.0$ using $RMSE$, $0-1 loss$ and $log-loss$. Increasing the value of $\alpha$ decreases all error estimations until a maximum $\lambda=10.0$ value and we obtained the best prediction accuracy with this value for the $\lambda$.
+
+\subsection{Feature transformation}
+We experimented with polynomial, exponential, sqrt(abs*)) of the values
+but did not manage to improve the previous results obtained using penalized logistic regression. Our best model setup (alpha = lambda = degree =) had a recognition rate of approx 96$\%$, when we used a polynomial of degree 2.
+Since the model worked  and but not better just as it is
+and since simpler models are preferred, we considered this not to be so relevant.

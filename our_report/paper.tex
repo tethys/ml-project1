@@ -121,30 +121,10 @@ Since we do not enforce continuiting at the X36 feature, our model will generate
 
 
 \section{Classification}
-\subsection{Data description}
-We have a two-class classification problem. The training data $Xtrain$ contains 1500 observations, each 32 dimensional. One training sample has 31 real valued features and 1 categorical feature, the 14th feature. Our task is to predict the category for unseen test data, consisting in 1500 samples. We measure the accuracy of our estimation using $RMSE$, $0-1 loss$ and $log-loss$. 
 
-\subsection{Data visualization and cleaning}
-We noticed that the samples were not equally distributed among classes, about $35\%$ of the samples were coming from one class and $65\%$ from the other. We did not have time to study the implications of this on our model estimation. We changed the labeling from -1/1 to 0/1. 
 
-The training data was again not centered as seen from $Fig.$\ref{fig:dist_classification}
-We noticed more outliers in the data of classification than in the one from regression. After removing the outliers and changing feature 14 to a dummy variable we normalized the data to have 0 mean and std 1.
-{%%#figures/distribution_classification.png}
-\begin{figure}[h]
-  \begin{subfigure}[b]{0.5\textwidth}
-   \includegraphics[width=\textwidth]{figures/classification_distribution.pdf}
-    \caption{Mean and standard deviation for the training data features. The input is not normalised and contains outliers.}
-    \label{fig:dist_classification}
-  \end{subfigure}
-  \caption{• Data visualization. }
-\end{figure}
+\input{Classification}
 
-\subsection{Logistic regression}
-\subsection{Feature transformation}
-We experimented with polynomial, exponential, sqrt(abs*)) of the values
-but did not manage to improve the previous results obtained using penalized logistic regression. Our best model setup (alpha = lambda = degree =) had a recognition rate of approx 96$\%$, when we used a polynomial of degree 2.
-Since the model worked  and but not better just as it is
-and since simpler models are preferred, we considered this not to be so relevant.
 
 \section{Summary}
 
