@@ -110,9 +110,15 @@ Both polynomial regression models significantly outperform the normal ridge regr
 Model1 mean  5.4649( std 0.0579) mean 6.2188( std 0.4801)
 Model2 mean   11.7039( std 2.0178) mean  53.1940( std 14.5599)
 
-
 Note also that our final RMSE (reported on the whole training data) is smaller that the sum of the two separated RMSE.
-\TODO{write here about best RMSE for both models separate, and for the final one.}
+{write here about best RMSE for both models separate, and for the final one.}
+
+Our wrong assumption was that in our training set we had a clear cut of the two models using the y value. The problem is that there are some points  with feature 36 > -13 which should actually be part of the other model. Because of this we expect our error on new data to be big.
+We tried splitting the data into 20 per cent for testing and 80 per cent for validation and as expected out test error got much worse.
+
+Our model is similar with cite book here and suffers from the same problems of the multiple regression problem as stated there.
+Since we do not enforce continuiting at the X36 feature, our model will generate high errors for samples that have the value of feature36 near the threshold value. This happens because feature 36 does not offer a clear separation of the data. We could have tried to enforce smoothnes at the thresholded value. We believe we have two models that work well separately but perform bad at the border. We removed all samples between -12,-14 and indeed our RMSE got worse, showing that the worst error comes from that part of the model.
+
 
 \section{Classification}
 \subsection{Data description}
@@ -135,6 +141,10 @@ We noticed more outliers in the data of classification than in the one from regr
 
 \subsection{Logistic regression}
 \subsection{Feature transformation}
+We experimented with polynomial, exponential, sqrt(abs*)) of the values
+but did not manage to improve the previous results obtained using penalized logistic regression. Our best model setup (alpha = lambda = degree =) had a recognition rate of approx 96$\%$, when we used a polynomial of degree 2.
+Since the model worked  and but not better just as it is
+and since simpler models are preferred, we considered this not to be so relevant.
 
 \section{Summary}
 
