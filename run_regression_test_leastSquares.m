@@ -4,31 +4,31 @@ close all
 clear all
 clc
 
-K = 1243;
+K = 5;
 alpha = 0.1;
-[X_train, y_train, X_test_1 ind_test_1] = load_regression_data(0);
+[X_train, y_train, X_test_1, ind_test_1] = load_regression_data(0);
 tX = [ones(size(y_train)) X_train];
 
 betaLS_1 = leastSquares(y_train, tX);
 rmseTr_1 = computeCostRMSE(y_train, tX, betaLS_1);
 fprintf(1,'RMSE using LeastSquares multi linear regression for the first fitting: %3.3f\n', rmseTr_1);
 
-[meanTrainError, meanValidationError]= KfoldCV(K, tX, y_train, 'leastSquares', alpha);
-fprintf(1, '\nTrain error: %3.3f\nValidation error: %3.3f\n\n', meanTrainError, meanValidationError);
+[meanTrainError_1, meanValidationError_1]= KfoldCV(K, tX, y_train, 'leastSquares', alpha);
+fprintf(1, '\nTrain error: %3.3f\nValidation error: %3.3f\n\n', meanTrainError_1, meanValidationError_1);
 
 % Second fitting
 clearvars X_train y_train
 
-K = 135;
-[X_train, y_train, X_test_2 ind_test_2] = load_regression_data(1);
+K = 5;
+[X_train, y_train, X_test_2, ind_test_2] = load_regression_data(1);
 tX = [ones(size(y_train)) X_train];
 
 betaLS_2 = leastSquares(y_train, tX);
-rmseTr = computeCostRMSE(y_train, tX, betaLS_2);
-fprintf(1,'RMSE using LeastSquares multi linear regression for the second fitting: %3.3f\n', rmseTr);
+rmseTr_2 = computeCostRMSE(y_train, tX, betaLS_2);
+fprintf(1,'RMSE using LeastSquares multi linear regression for the second fitting: %3.3f\n', rmseTr_2);
 
-[meanTrainError, meanValidationError]= KfoldCV(K, tX, y_train, 'leastSquares', alpha);
-fprintf(1, '\nTrain error: %3.3f\nValidation error: %3.3f\n\n', meanTrainError, meanValidationError);
+[meanTrainError_2, meanValidationError_2]= KfoldCV(K, tX, y_train, 'leastSquares', alpha);
+fprintf(1, '\nTrain error: %3.3f\nValidation error: %3.3f\n\n', meanTrainError_2, meanValidationError_2);
 
 %% Prediction of the test data
 M = size(X_test_1,1) + size(X_test_2,1);
@@ -46,3 +46,6 @@ X_test(ind_test_1, :) = X_test_1;
 X_test(ind_test_2, :) = X_test_2;
 figure;
 scatterhist(X_test(:,36), y_test);
+
+test_error = size(X_test_1,1)/size(X_test,1) * meanValidationError_1 + size(X_test_2,1)/size(X_test,1) * meanValidationError_2;
+fprintf(1,'\nPredicted RMSE for the test data: %3.3f\n', test_error);
