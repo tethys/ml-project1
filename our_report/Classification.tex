@@ -61,7 +61,11 @@ For our best setups, we report three types of errors $\lambda=1.0$ using $RMSE$,
  
 
 \subsection{Feature transformation}
-We experimented with polynomial and exponential transformation of the values but did not manage to significantly improve the previous results obtained using penLogRegression. Our best model used a polynomial of degree 2 transformation of the features, $\alpha=2$ $\lambda=0.1$, which had a recognition rate of approx 95.77 (with std 1.056). All other models performed much worse.
+We experimented with polynomial and exponential transformation of the values but did not manage to significantly improve the previous results obtained using penLogRegression. Our best model used a polynomial of degree 2 transformation of every feature, $\alpha=2$ $\lambda=0.1$, which had a recognition rate of approx 95.77 (with std 1.056). All other models performed much worse.
 Since in general it is better to explain the correlation in the data using simpler models, we decided to report our best predictions using penLogisticRegression.
 
 \subsection{Summary}
+
+In this report, we experimented with a classification problem using logistic and penalised logistic regression. Both models gave very similar results, with best classification accuracy of  $97\%$ (std ..) obtained using penLogisticRegression. Although logRegression performed very similarly, we expect penLogisticRegression to perform better on unseen data.
+
+None of the feature transformations we tried improved the results. Using a polynomial of degree 2 for every variable performed similarly with the other models, but since the model just added complexity and no significant improvement in accuracy it was not considered relevant.
