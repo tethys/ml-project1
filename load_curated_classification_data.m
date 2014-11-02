@@ -43,15 +43,20 @@ X_test = X_test ./ X_std_rep;
 indices = y_train == -1;
 y_train(indices) = 0;
 
+size(y_train)
+
 %% Remove outliers from the train data
 % If the data are normally distributed with mean 0 and std 1, then the
 % 99.99% of them are appear between the values -3.891 and 3.891
-[row_to_remove, ~] = find(X_train < -3.891);
-[temp, ~] = find(X_train > 3.891);
+[row_to_remove, ~] = find(X_train < -7.5);
+[temp, ~] = find(X_train > 7.5);
 row_to_remove = unique([row_to_remove ; temp]);
 row_to_remove = sort(row_to_remove,'descend');
 X_train(row_to_remove,:)=[];
 y_train(row_to_remove,:)=[];
+
+%boxplot(X_train);
+size(y_train)
 
 
 end

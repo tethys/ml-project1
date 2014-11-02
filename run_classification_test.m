@@ -12,7 +12,7 @@ N = size(X_train,1);
 tX = [ones(N,1) X_train];
 %%
 
-alpha = 0.1;
+alpha = 1.0;
 beta = logisticRegression(y_train, tX, alpha);
 % Logistic regression will give you a prediction probability of a test 
 % output belonging to class say yn = 1. Call it pHatn. 
@@ -27,9 +27,10 @@ yHatn(pHatn >= 0.5) = 1;
 train_RMSE_LR = sqrt(mean((y_train - pHatn).^2));
 train_01Loss_LR = mean(double(yHatn ~= y_train));
 train_logLoss_LR = mean(-y_train'*log(pHatn) - (1-y_train)'*log(1-pHatn));
+
 %%
 
-lambda = 1.0;
+lambda = 0.5;
 beta = penLogisticRegression(y_train, tX, alpha, lambda);
 % Logistic regression will give you a prediction probability of a test 
 % output belonging to class say yn = 1. Call it pHatn. 
@@ -54,13 +55,13 @@ fprintf(fid, 'penlogisticRegression,%f,%f,%f\n', train_RMSE_pLR, ...
     train_01Loss_pLR, train_logLoss_pLR);
 %%
 
-alpha = 0.2;
+%alpha = 10.0; 
 beta = logisticRegression(y_train, tX, alpha);
 predicted_probability = zeros(N, 1);
 predicted_probability(sigmoid(tX*beta) >= 0.5) = 1;
 train_accuracy_1 = mean(double(predicted_probability == y_train)) * 100;
 
-lambda = 0.1;
+%lambda = 0.01;
 beta = penLogisticRegression(y_train, tX, alpha, lambda);
 predicted_probability = zeros(N, 1);
 predicted_probability(sigmoid(tX*beta) >= 0.5) = 1;
@@ -68,3 +69,7 @@ train_accuracy_2 = mean(double(predicted_probability == y_train)) * 100;
 
 fprintf('Train Accuracy normal logistic: %f\n', train_accuracy_1);
 fprintf('Train Accuracy penalized logistic: %f\n', train_accuracy_2);
+
+csvwrite('predictions_classification.csv',sigmoid([ones(size(X_test,1),1) X_test]*beta));
+
+

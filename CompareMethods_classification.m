@@ -8,10 +8,10 @@ tX = [ones(N,1) X_train];
 
 % alpha=10.0 LR = 94.47 and pLR = 94.067 --> best results
 % alpha=0.1 LR = 93.47 and pLR = 94.20 --> best results
-alpha = 10.0; 
+alpha = 1.0; 
 % but it doesn't decrease (LR and pLR) until lambda=0.1 
 % while increasing lambda
-lambda = 1e-5; 
+lambda = 0.5; 
 
     % split data in K fold (we will only create indices)
     K = 5;
@@ -22,8 +22,7 @@ lambda = 1e-5;
     for k = 1:K
         idxCV(k,:) = idx(1+(k-1)*Nk:k*Nk);
     end
-    trainError = zeros(K,1); 
-    validationError = zeros(K, 1);
+
     for k = 1:K
         % get k'th subgroup in test, others in train
         idxTe = idxCV(k,:);
