@@ -11,13 +11,13 @@ The training data was again not centered as seen in $Fig.$\ref{fig:dist_classifi
 \begin{figure}[h]
 	\begin{subfigure}[b]{0.5\textwidth}
    \includegraphics[width=\textwidth]{figures/classification_distribution.pdf}
-    \caption{Mean and standard deviation for the training data features. The input is not normalised and contains outliers.}
+    \captionof{figure}{Mean and standard deviation for the training data features. The input is not normalised and contains outliers.}
     \label{fig:dist_classification}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.45\textwidth}
    \includegraphics[clip, trim=4cm 9cm 3cm 10cm, width=\textwidth]{figures/Lambda_pLG.pdf}
-    \caption{Train and test error assessment with penalty factor ($\lambda$) for penalized logistic regression
+    \captionof{figure}{Train and test error assessment with penalty factor ($\lambda$) for penalized logistic regression
     for 50-50 split.}
     \label{fig:Lambda_pLr}
   \end{subfigure}
@@ -38,30 +38,27 @@ $Fig.$\ref{fig:comp_LR_pLR} shows the classification accuracy percentage  of log
 
 For our best setups, we report three types of errors using $RMSE$, $0-1 loss$ and $log-loss$  in table \ref{table:test_errors}. penLogisticRegression consistently performs better.
 
-\begin{figure}[h]
-  \begin{minipage}[b]{0.50\linewidth}
+\begin{minipage}{\textwidth}
+  \begin{minipage}[b]{0.49\textwidth}
     \centering
-    \begin{subfigure}[b]{0.8\textwidth}
     \includegraphics[clip, trim=4cm 10cm 3.5cm 10cm, width=\textwidth]{figures/comparison_LR_pLR.pdf}
-    \caption{• Comparison of logistic regression and penalized logistic regression based on validation accuracy}
+    \captionof{figure}{Comparison of logistic regression and penalized logistic regression based on validation accuracy}
     \label{fig:comp_LR_pLR}
-  \end{subfigure}
-  \end{minipage}%
-  \begin{minipage}[b]{0.40\linewidth}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{0.49\textwidth}
     \centering
-    \begin{tabular}{ | l | l | l | p{1.2cm} |}
+        \begin{tabular}{ | l | l | l | p{1.2cm} |}
     \hline
     Method & RMSE & 0-1-Loss & Log-Loss \\ \hline
     LogRegression & 0.17 & 0.033 & 161.32 \\ \hline
     PenLogRegression & 0.15 & 0.0267 & 132.34 \\ \hline
     \end{tabular}
-    \caption{Best predicted error estimates for the test data}
-	\label{table:test_errors}
-    \par\vspace{60pt}
+      \captionof{table}{Best predicted error estimates for the test data}
+      \label{table:test_errors}
+      \par\vspace{60pt}
+    \end{minipage}
   \end{minipage}
-\label{fig:test}
-\caption{• Comparison of logistic regression and penalized logistic regression based on validation accuracy}
-\end{figure} 
  
 \subsection{Feature transformation}
 We experimented with polynomial and exponential transformation of the values but did not manage to significantly improve the previous results obtained using penLogRegression. Our best model used a polynomial of degree 2 transformation of every feature, $\alpha=2$ $\lambda=0.1$, which had a recognition rate of approx 95.77 (with std 1.056). All other models performed much worse.
