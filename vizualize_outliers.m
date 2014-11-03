@@ -30,7 +30,7 @@ hx = xlabel('Feature 36 for training data');
 set([hx; hy],'fontsize',18,'fontname','avantgarde','color',[.3 .3 .3]);
 grid on;
 hold on;
-plot([-3,5],[4800,4800],'LineWidth',2, 'Color','r')
-plot([-12.5,-12.5],[0,7000],'LineWidth',2, 'Color','k')
+plot([-20,9],[4900,4900],'LineWidth',2, 'Color','r')
+plot([-13,-13],[0,7000],'LineWidth',2, 'Color','k')
 
 sum(X_train_normalised(:,36) > 1.4)
