@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.10.24)  2 NOV 2014 21:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.10.24)  3 NOV 2014 01:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -308,55 +308,93 @@ Package: subcaption 2013/02/03 v1.1-62 Sub-captions (AR)
 \c@subfigure=\count117
 \c@subtable=\count118
 )
+(/usr/local/texlive/2014/texmf-dist/tex/latex/floatrow/floatrow.sty
+Package: floatrow 2008/08/02 v0.3b floatrow: float package extension
+\c@float@type=\count119
+\float@exts=\toks20
+\float@box=\box30
+\@floatcapt=\box31
+Package floatrow Info: Modified float package code loaded on input line 455.
+Package floatrow Info: Modified rotfloat package code loaded on input line 473.
+
+\FR@everyfloat=\toks21
+\flrow@foot=\insert233
+\FB@wd=\dimen128
+\FBo@wd=\dimen129
+\FBc@wd=\dimen130
+\FBo@ht=\skip49
+\FBc@ht=\skip50
+\FBf@ht=\skip51
+\FBo@max=\skip52
+\FBc@max=\skip53
+\FBf@max=\skip54
+\c@FBl@b=\count120
+\floatbox@depth=\count121
+\c@FRobj=\count122
+\c@FRsobj=\count123
+\Xhsize=\skip55
+\sXhsize=\skip56
+\Zhsize=\skip57
+\sZhsize=\skip58
+\flrow@rowbox=\box32
+\FR@Zunitlength=\dimen131
+\c@FBcnt=\count124
+\FPOScnt=\count125
+\LTleft=\skip59
+\LTright=\skip60
+\LTleft=\skip61
+\LTright=\skip62
+\flrow@types=\toks22
+)
 (./paper.aux)
 \openout1 = `paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 40.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 48.
  (/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
-\AtBeginShipoutBox=\box30
+\AtBeginShipoutBox=\box33
 
 (/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count119
-\scratchdimen=\dimen128
-\scratchbox=\box31
-\nofMPsegments=\count120
-\nofMParguments=\count121
-\everyMPshowfont=\toks20
-\MPscratchCnt=\count122
-\MPscratchDim=\dimen129
-\MPnumerator=\count123
-\makeMPintoPDFobject=\count124
-\everyMPtoPDFconversion=\toks21
+\scratchcounter=\count126
+\scratchdimen=\dimen132
+\scratchbox=\box34
+\nofMPsegments=\count127
+\nofMParguments=\count128
+\everyMPshowfont=\toks23
+\MPscratchCnt=\count129
+\MPscratchDim=\dimen133
+\MPnumerator=\count130
+\makeMPintoPDFobject=\count131
+\everyMPtoPDFconversion=\toks24
 )
-Package hyperref Info: Link coloring OFF on input line 40.
+Package hyperref Info: Link coloring OFF on input line 48.
  (/usr/local/texlive/2014/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
 (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count125
+\c@section@level=\count132
 )
-LaTeX Info: Redefining \ref on input line 40.
-LaTeX Info: Redefining \pageref on input line 40.
-LaTeX Info: Redefining \nameref on input line 40.
+LaTeX Info: Redefining \ref on input line 48.
+LaTeX Info: Redefining \pageref on input line 48.
+LaTeX Info: Redefining \nameref on input line 48.
 
 (./paper.out) (./paper.out)
 \@outlinefile=\write3
@@ -379,42 +417,45 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: floatrow package is loaded.
+Package caption Info: float package is loaded.
+Package caption Info: floatrow package is loaded.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 43.
-LaTeX Font Info:    Try loading font information for U+msa on input line 43.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 51.
+LaTeX Font Info:    Try loading font information for U+msa on input line 51.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 43.
+LaTeX Font Info:    Try loading font information for U+msb on input line 51.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 43.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 43.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 51.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 51.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 44.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 52.
 
 <figures/distribution_regression_crop.pdf, id=54, 600.5637pt x 222.59161pt>
 File: figures/distribution_regression_crop.pdf Graphic file (type pdf)
 
 <use figures/distribution_regression_crop.pdf>
 Package pdftex.def Info: figures/distribution_regression_crop.pdf used on input
- line 66.
+ line 74.
 (pdftex.def)             Requested size: 178.86702pt x 66.29568pt.
 
 <figures/feature36_crop.pdf, id=55, 502.27646pt x 384.47641pt>
 File: figures/feature36_crop.pdf Graphic file (type pdf)
 
 <use figures/feature36_crop.pdf>
-Package pdftex.def Info: figures/feature36_crop.pdf used on input line 71.
+Package pdftex.def Info: figures/feature36_crop.pdf used on input line 79.
 (pdftex.def)             Requested size: 178.86702pt x 136.9154pt.
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
@@ -422,9 +463,6 @@ Missing character: There is no ¢ in font ptmr7t!
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ¢ in font ptmr7t!
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
  [1
 
 {/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
@@ -433,7 +471,7 @@ File: figures/degree_polynomial_blob1_crop.pdf Graphic file (type pdf)
 
 <use figures/degree_polynomial_blob1_crop.pdf>
 Package pdftex.def Info: figures/degree_polynomial_blob1_crop.pdf used on input
- line 98.
+ line 106.
 (pdftex.def)             Requested size: 178.86702pt x 142.39651pt.
 
 <figures/degree_polynomial_blob2_crop.pdf, id=70, 489.99057pt x 377.24939pt>
@@ -441,7 +479,7 @@ File: figures/degree_polynomial_blob2_crop.pdf Graphic file (type pdf)
 
 <use figures/degree_polynomial_blob2_crop.pdf>
 Package pdftex.def Info: figures/degree_polynomial_blob2_crop.pdf used on input
- line 103.
+ line 111.
 (pdftex.def)             Requested size: 178.86702pt x 137.70926pt.
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
@@ -449,64 +487,87 @@ Missing character: There is no ¢ in font ptmr7t!
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ¢ in font ptmr7t!
+
+Underfull \vbox (badness 2865) has occurred while \output is active []
+
  [2 <./figures/distribution_regression_crop.pdf> <./figures/feature36_crop.pdf>
  <./figures/degree_polynomial_blob1_crop.pdf> <./figures/degree_polynomial_blob
 2_crop.pdf>]
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 131.
+See the caption package documentation for explanation.
+
 (./Classification.tex
-<figures/classification_distribution.pdf, id=95, 563.70598pt x 396.76227pt>
+<figures/classification_distribution.pdf, id=97, 563.70598pt x 396.76227pt>
 File: figures/classification_distribution.pdf Graphic file (type pdf)
 
 <use figures/classification_distribution.pdf>
 Package pdftex.def Info: figures/classification_distribution.pdf used on input 
-line 11.
+line 13.
 (pdftex.def)             Requested size: 198.7425pt x 139.8799pt.
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no ¢ in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no ¢ in font ptmr7t!
+
+<figures/Lambda_pLG.pdf, id=98, 597.23125pt x 845.1575pt>
+File: figures/Lambda_pLG.pdf Graphic file (type pdf)
+
+<use figures/Lambda_pLG.pdf>
+Package pdftex.def Info: figures/Lambda_pLG.pdf used on input line 19.
+(pdftex.def)             Requested size: 178.86702pt x 136.85338pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/Lambda_pLG.pdf, id=97, 597.23125pt x 845.1575pt>
-File: figures/Lambda_pLG.pdf Graphic file (type pdf)
-
-<use figures/Lambda_pLG.pdf>
-Package pdftex.def Info: figures/Lambda_pLG.pdf used on input line 30.
-(pdftex.def)             Requested size: 198.7425pt x 152.05879pt.
-
-<figures/comparison_LR_pLR.pdf, id=99, 597.23125pt x 845.1575pt>
+[3] <figures/comparison_LR_pLR.pdf, id=109, 597.23125pt x 845.1575pt>
 File: figures/comparison_LR_pLR.pdf Graphic file (type pdf)
 
 <use figures/comparison_LR_pLR.pdf>
-Package pdftex.def Info: figures/comparison_LR_pLR.pdf used on input line 37.
-(pdftex.def)             Requested size: 178.86702pt x 124.06798pt.
+Package pdftex.def Info: figures/comparison_LR_pLR.pdf used on input line 44.
+(pdftex.def)             Requested size: 194.76982pt x 140.10258pt.
 
-Underfull \vbox (badness 1502) has occurred while \output is active []
 
- [3]
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 45.
+See the caption package documentation for explanation.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--53
+[]\OT1/ptm/m/n/10 Log-
+ []
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 57.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (25.55226pt too wide) in paragraph at lines 51--57
+ [][] 
+ []
+
 [4 <./figures/Lambda_pLG.pdf> <./figures/comparison_LR_pLR.pdf> <./figures/clas
 sification_distribution.pdf>])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 140.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 158.
  [5]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 140.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 158.
  (./paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 140.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 140.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 158.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 158.
 Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: 97B9EEB26F96D61EB2EB14DD85F2252E;778.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 140.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 158.
  ) 
 Here is how much of TeX's memory you used:
- 7872 strings out of 493117
- 117259 string characters out of 6135432
- 213364 words of memory out of 5000000
- 11203 multiletter control sequences out of 15000+600000
+ 8397 strings out of 493117
+ 124808 string characters out of 6135432
+ 225321 words of memory out of 5000000
+ 11722 multiletter control sequences out of 15000+600000
  18569 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 37i,10n,39p,542b,470s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,12n,39p,542b,514s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
 xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texl
@@ -517,10 +578,10 @@ e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2
 /texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2014/texmf-d
 ist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/
 type1/urw/times/utmr8a.pfb>
-Output written on paper.pdf (5 pages, 225774 bytes).
+Output written on paper.pdf (5 pages, 227559 bytes).
 PDF statistics:
- 177 PDF objects out of 1000 (max. 8388607)
- 148 compressed objects within 2 object streams
- 25 named destinations out of 1000 (max. 500000)
+ 180 PDF objects out of 1000 (max. 8388607)
+ 151 compressed objects within 2 object streams
+ 26 named destinations out of 1000 (max. 500000)
  144 words of extra memory for PDF output out of 10000 (max. 10000000)
 

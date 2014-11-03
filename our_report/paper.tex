@@ -15,16 +15,24 @@
 \usepackage{caption}
 \usepackage{subcaption}
 
+\usepackage{floatrow}
+% Table float box with bottom caption, box width adjusted to content
+\newfloatcommand{capbtabbox}{table}[][\FBwidth]
+
 \title{Project-I by Group Rome}
 
 \author{
-Viviana Petrescu\\
-EPFL \\
-\texttt{vpetresc@epfl.ch} \\
-\And
 Gocken Cimen\\
 EPFL \\
 \texttt{gcimen@epfl.ch} \\
+\And
+Viviana Petrescu\\
+EPFL \\
+\texttt{viviana.petrescu@epfl.ch} \\
+\And
+Angelopoulos Vasileios \\
+EPFL \\
+\texttt{vasileios.angelopoulos@epfl.ch} \\
 }
 
 % The \author macro works with any number of authors. There are two commands
@@ -52,7 +60,7 @@ The training data $Xtrain$ contains 1400 observations, each 43 dimensional. One 
 
 \subsection{Data visualization and cleaning}
 Initially, our data was not centered, as seen in $Fig.$ \ref{fig:dist_regression}.
-We changed the categorical features into dummy variables, leading to a new vector of size 56. $Xtrain$ was then normalized to have 0 mean and standard deviation 1. We applied the same operations to the test data $Xtest$ on which we will report the results.
+We changed the categorical features into dummy variables, leading to a new vector of size 56. $Xtrain$ was then normalized to have 0 mean and standard deviation 1 (except the dummy variables). We applied the same operations to the test data $Xtest$ on which we will report the results.
 
  We plotted the correlation of every feature with respect to the output $ytrain$ and the scatter plots did not look random. We concluded the features explain the output, but we could not tell if one of them is insignificant.
 
@@ -86,9 +94,9 @@ If the input is normally distributed with mean 0 and std 1, then
 \subsection{Feature transformations}
 We tried polynomial and exponential transformations of the features.
 The exponential transformation did not prove to work well and we focused on polynomial regression.
-We only transformed the first 35 variables and kept the categorical variables as they are since  polynomial transformation of categorical variables does not have an intuitive interpretation. 
+We only transformed the first 36 variables and kept the categorical variables as they are since  polynomial transformation of categorical variables does not have an intuitive interpretation. 
 
-The degree of the polynomial was varied from 1 to 10 for both blob-models. In $Fig$\ref{fig:degree_blob1},\ref{fig:degre_blob2} we plotted the mean training and validation $RMSE$ for the degree varying only between 2 - 10 and 2 - 6 respectively for readability (for the other values the RMSE was too big).
+The degree of the polynomial was varied from 1 to 10 for both blob-models. In $Fig$\ref{fig:degree_blob1},\ref{fig:degre_blob2} we plotted the mean training and validation $RMSE$ for the degree varying only between 2 - 10 and 2 - 6 respectively for readability (for the other values the RMSE was too big). We will refer to the scatter points grouped in a round shape as the first blob or big blob and the the other points as the small blob.
 
 Using 5-fold cross validation with $\lambda = 1e-5, \alpha = 0.1$ we
 notice that a polynomial of degree 3 is a good fit for the first model. Increasing it further leads to overfitting, since the training errors becomes very small and the validation error increases. For the second model, using  $\lambda = 0.001, \alpha = 0.1$ we obtain a best fit for a polynomial of degree 2.
@@ -111,14 +119,24 @@ We increased lambda to prevent overfitting, since we have 10 times less samples 
 
 Both polynomial regression models significantly outperform the normal ridge regression, which gave a RMSE > 100.
 
-Model1 mean  5.4649( std 0.0579) mean 6.2188( std 0.4801)
-Model2 mean   11.7039( std 2.0178) mean  53.1940( std 14.5599)
+\begin{center}
+  \begin{tabular}{ |l | c | r| }
+    \hline
+     & RMSE train & RMSE test \\ \hline
+    Blob1 model & 5.37 ($\pm$ 0.044) & 6.25 ($\pm$ 0.4) \\ \hline
+    Blob2 model & 7.16 ($\pm$ 1.85) & 58.10 ($\pm$ 16.2) \\
+    \hline
+  \end{tabular}
+  	\label{table:feat_transform}
+    \captionof{table}{Estimated Train and Test RMSE for the two blob models.}
+\end{center}
 
-Note also that our final RMSE (reported on the whole training data) is smaller that the sum of the two separated RMSE.
-{write here about best RMSE for both models separate, and for the final one.}
-
-Our wrong assumption was that in our training set we had a clear cut of the two models using the y value. The problem is that there are some points  with feature 36 > -13 which should actually be part of the other model. Because of this we expect our error on new data to be big.
-We tried splitting the data into 20 per cent for testing and 80 per cent for validation and as expected out test error got much worse.
+Our wrong assumption was that in our training set we had a clear separation between the two models using the value of feature 36. The problem is that there are some samples with feature 36 > -13 whose predicted value should be estimated using model 1 and some which sould use model 2. This can also be seen in $Fig.$\ref{fig:feature36}.
+ Because of this we expect our error on new data to be big for samples that have feature36 in the range [-12,-14].
+To test this, we tried splitting $Xtrain$ into $20\%$ for testing and $80\%$ for training and validation. We applied the same data processing, model parameters as above and the RMSE per model proved to be similar with the ones in Table\ref{table:feat_transform} and as expected out test error got much worse. The total RMSE for our $20\%$ unseen test data
+was   295.78 (RMSE= 73.5 for model 1, RMSE = 887.24 for model2).
+If we remove all the samples in the test data with feature36 in the interval [-12,-14] we obtain a total RMSE=68.6223 (RMSE= 71.6 for model 1, RMSE = 82.77 for model2)
+   
 
 Our model is similar with cite book here and suffers from the same problems of the multiple regression problem as stated there.
 Since we do not enforce continuiting at the X36 feature, our model will generate high errors for samples that have the value of feature36 near the threshold value. This happens because feature 36 does not offer a clear separation of the data. We could have tried to enforce smoothnes at the thresholded value. We believe we have two models that work well separately but perform bad at the border. We removed all samples between -12,-14 and indeed our RMSE got worse, showing that the worst error comes from that part of the model.
