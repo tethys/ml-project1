@@ -19,7 +19,8 @@ After looking at every feature individually, we noticed that feature 36 offers a
     \caption{Mean and standard deviation for the first 36 real valued variables of Xtrain. The input is not normalised and feature 36 is the only negative one.}
     \label{fig:dist_regression}
   \end{subfigure}
-  \begin{subfigure}[b]{0.45\textwidth}
+  \hfill
+  \begin{subfigure}[b]{0.38\textwidth}
     \includegraphics[width=\textwidth]{figures/feature36_13_crop.pdf}
     \caption{Feature 36 versus output values. X = 1.4 (black line) and y = 4900 (red line)  provide a good separation of the two blobs.}
     \label{fig:feature36}
@@ -46,6 +47,7 @@ $Figures$ \ref{fig:alpha1} and \ref{fig:alpha2} present the results of the exper
     \caption{Results for the big blob.}
     \label{fig:alpha1}
   \end{subfigure}
+  \hfill
   \begin{subfigure}[b]{0.45\textwidth}
     \includegraphics[width=\textwidth]{figures/alpha_curve2.pdf}
     \caption{Results for small blob.}
@@ -63,6 +65,7 @@ Regarding the ridge regression method we used 1000 different values for $\lambda
     \caption{Results for the big blob.}
     \label{fig:lambda1}
   \end{subfigure}
+  \hfill
   \begin{subfigure}[b]{0.45\textwidth}
     \includegraphics[width=\textwidth]{figures/lambda_curve2.pdf}
     \caption{Results for small blob.}
@@ -73,13 +76,22 @@ Regarding the ridge regression method we used 1000 different values for $\lambda
 
 For the last part of this section's experiments we tried to study how the amount of the data that are used for training affects the resulting errors. We kept a constant amount of the data (20\% of the given) for the training and we used the rest of them in proportional way for training. We started using 10\% of the training part for our training and we continued up to 100\%. Each experiment was held 50 times with 50 different randomly selected subgroups of data and the results shown represent the average of these experiments.
 
-$Figure$ \ref{fig:learning_curve} presents the RMSE obtained for the two models, after using each proportion of the training data. As we can see, when the proportion increases the RMSE for training and the RMSE for validation tend to some specific values.
+$Figures$ \ref{fig:learning_curve_degree_blob1} and \ref{fig:learning_curve_degre_blob2} present the RMSE obtained for the two models, after using each proportion of the training data. As we can see, when the proportion increases the RMSE for training and the RMSE for validation tend to some specific values.
 
 \begin{figure}[ht]
   \centering
-   \includegraphics[scale=0.3]{figures/learning_curve.pdf}
-  \caption{Learning curve produced for our model using ridge regression. The blue lines represents the train RMSE and the red the test RMSE. Moreover, the top figure represents the big blob and the bottom figure the small blob.}
-  \label{fig:learning_curve}
+  \begin{subfigure}[b]{0.48\textwidth}
+   \includegraphics[clip, trim=0cm 7.8cm 0cm 0cm, width=\textwidth]{figures/learning_curve.pdf}
+    \caption{First Blob. }
+    \label{fig:learning_curve_degree_blob1}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.48\textwidth}
+    \includegraphics[clip, trim=0cm 0cm 0cm 8cm, width=\textwidth]{figures/learning_curve.pdf}
+    \caption{Second Blob.}
+    \label{fig:learning_curve_degre_blob2}
+  \end{subfigure}
+  \caption{Learning curve produced for our model using ridge regression. The blue lines represents the train RMSE and the red the test RMSE. Moreover, the left figure represents the big blob and the right figure the small blob.}
 \end{figure}
 
 \subsection{Feature transformations}
@@ -100,6 +112,7 @@ notice that a polynomial of degree 3 is the best fit for the first blob. Increas
     \caption{First Blob. Mean RMSE for training set \newline (blue curve) and testing (red curve) versus poly-\newline nomial degree. The errors were computed using\newline 5-fold cross-validation.}
     \label{fig:degree_blob1}
   \end{subfigure}
+  \hfill
   \begin{subfigure}[b]{0.45\textwidth}
     \includegraphics[width=\textwidth]{figures/degree_polynomial_blob2_crop.pdf}
     \caption{Second Blob. Mean RMSE for training set (blue curve) and testing (red curve) versus polynomial degree. The errors were computed using 5-fold cross-validation.}
