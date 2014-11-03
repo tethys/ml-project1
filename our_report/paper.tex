@@ -96,11 +96,12 @@ We tried polynomial and exponential transformations of the features.
 The exponential transformation did not prove to work well and we focused on polynomial regression.
 We only transformed the first 36 variables and kept the categorical variables as they are since  polynomial transformation of categorical variables does not have an intuitive interpretation. 
 
+In all our experiments we used 5-fold cross-validation.
 The degree of the polynomial was varied from 1 to 10 for both blob-models. In $Fig$\ref{fig:degree_blob1},\ref{fig:degre_blob2} we plotted the mean training and validation $RMSE$ for the degree varying only between 2 - 10 and 2 - 6 respectively for readability (for the other values the RMSE was too big). 
 
-We tried both $\lambda$ and $\alpha$ with values in the setl$1e-5,1e-4,1e-3,1e-2,1,10,100$.
+We tried both $\lambda$ and $\alpha$ with values in the set $\{10^i | i =-5,...,2\}$.
 Using 5-fold cross validation with $\lambda = 1e-5, \alpha = 0.1$ we
-notice that a polynomial of degree 3 is a good fit for the first model. Increasing it further leads to overfitting, since the training errors becomes very small and the validation error increases. For the second model, using  $\lambda = 0.001, \alpha = 0.1$ we obtain a best fit for a polynomial of degree 2.
+notice that a polynomial of degree 3 is the best fit for the first model. Increasing it further leads to overfitting, since the training errors becomes very small and the validation error increases. For the second model, using  $\lambda = 0.001, \alpha = 0.1$ we obtain a best fit for a polynomial of degree 2.
 
 \begin{figure}[h]
   \begin{subfigure}[b]{0.45\textwidth}
@@ -118,10 +119,10 @@ notice that a polynomial of degree 3 is a good fit for the first model. Increasi
 
 We increased lambda to prevent overfitting, since we have 10 times less samples for the second model. However, we still noticed that our RMSE for the validation set  was  bigger for the second blob. This might be due to the fact that we have a very small set for both training and testing of the second model.
 
-Both polynomial regression models significantly outperform the normal ridge regression, which gave a RMSE > 100. Table \ref{table:feat_transform} summarizes our best results. We notice that for the first model our training and testing errors were quite similar and the standard deviation was quite small. For the second model the validation error was much bigger than the train error, which is an indicate of overfitting.
+Both polynomial regression models significantly outperform the normal ridge regression, which gave a RMSE > 100. Table \ref{table:feat_transform} summarizes our best results. We notice that for the first model, our training and testing errors were quite similar and the standard deviation was quite small. For the second model, the validation error was much bigger than the train error, which is an indicate of overfitting. 
 
 \begin{center}
-  \begin{tabular}{ |l | c | r| }
+  \begin{tabular}{ |l | c | c| }
     \hline
      & RMSE train & RMSE test \\ \hline
     Blob1 model & 5.37 ($\pm$ 0.044) & 6.25 ($\pm$ 0.4) \\ \hline
@@ -132,15 +133,15 @@ Both polynomial regression models significantly outperform the normal ridge regr
     \captionof{table}{Estimated Train and Test RMSE for the two blob models.}
 \end{center}
 
-We note that our assumption that in our training set we had a clear separation between the two models using the value of feature 36 is not a realistic approximation. The problem is that there are some samples with feature 36 > -13 whose predicted value should be estimated using model 1 and some which sould use model 2. This can also be seen in $Fig.$\ref{fig:feature36}.
- Because of this, we expect our error on new unseen data to be big for samples that have feature 36 value in the range [-12,-14].
+We note that our assumption that in our training set we have a clear separation between the two blobs using the value of feature 36 is not a realistic approximation. The problem is that there are some samples with feature 36 $>$ -13 whose predicted value should be estimated using model 1 and some which should use model 2. This can also be seen in $Fig.$\ref{fig:feature36}.
+ Because of this, we expect our error on new unseen data to be big for samples that have feature 36 value in the range $[-12,-14]$.
  
-To test this, we tried splitting $Xtrain$ into $20\%$ for testing and $80\%$ for training and validation. We applied the same data processing, model parameters as above and the RMSE per model proved to be very similar with the ones in Table\ref{table:feat_transform} but, as expected, out test erroron the held out $20\%$ got much worse. The total RMSE for our $20\%$  test data was 295.78 (RMSE= 73.5 for model 1, RMSE = 887.24 for model2 and 295.78 RMSE combined).
-If we remove all the samples in the hel out test data which have feature36 in the interval [-12,-14] we obtain a total RMSE=68.6223 (RMSE= 71.6 for model 1, RMSE = 82.77 for model 2) which validates our hypothesis.
+To test this, we tried splitting $Xtrain$ into $20\%$ for testing and $80\%$ for training and validation. We applied the same data processing, we estimated model parameters as above and the RMSE per model proved to be very similar with the ones in Table\ref{table:feat_transform}. 
 
+However, as we expected, our test error on the held out $20\%$ got much worse. The total RMSE for our $20\%$  test data was 295.78 (RMSE= 73.5 for model 1, RMSE = 887.24 for model2 and 295.78 RMSE combined).
+If we remove all the samples in the held out test data which have feature36 in the interval [-12,-14], we obtain a total RMSE = 68.62 (RMSE = 71.6 for model 1, RMSE = 82.77 for model 2) which validates our hypothesis that the bigger error comes from that part of the model. To sum up, we have two models that work well separately but perform bad for samples with feature 36 near the threshold value.
 
-Our model is similar with cite book here and suffers from the same problems of the multiple regression problem as stated there.
-Since we do not enforce continuiting at the X36 feature, our model will generate high errors for samples that have the value of feature36 near the threshold value. This happens because feature 36 does not offer a clear separation of the data. We could have tried to enforce smoothnes at the thresholded value. We believe we have two models that work well separately but perform bad at the border. We removed all samples between -12,-14 and indeed our RMSE got worse, showing that the worst error comes from that part of the model.
+Our model is a piecewiese polynomial and can suffer from various problems (( see cite book here) for details on how to prevent this). Since we do not enforce continuity at the 36th feature, our model will generate high errors for samples that have the value of feature36 near the threshold value, in our case -13. This happens because feature 36 does not give a clear separation of the data into two distinct models. Enforcing smoothness at the thresholded value could have solved the problem, but we did not thave the time to try this.
 
 
 \section{Classification}
