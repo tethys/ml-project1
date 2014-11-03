@@ -1,8 +1,11 @@
-
+%% The file creates predictions_regression.csv using our best model
+%% with piecewiese polynomials.
 function yPred = run_Xtest_prediction
 clear all;
 
+%% load test data that belongs to blob 1
 [~, ~, X_test1, ind_test1] = load_regression_data(0);
+%% load test data that belongs to blob 2
 [~, ~, X_test2, ind_test2] = load_regression_data(1);
 
 data = load('Rome_regression.mat');
@@ -33,6 +36,7 @@ csvwrite('predictions_regression.csv', yPred)
 
 end
 
+%% Model for the first blob
 function tX1 = process_input_model1(Xtest)
  d=3;
  N = size(Xtest,1);
@@ -42,7 +46,7 @@ function tX1 = process_input_model1(Xtest)
  size(tX1)
 end
 
-
+%% Model for the second blob
 function tX2 = process_input_model2(Xtest)
  d=2;
  N = size(Xtest,1);

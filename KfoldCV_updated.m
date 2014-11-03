@@ -1,4 +1,4 @@
-% K-fold cross validation for estimating test errors
+% K-fold cross validation for estimating test errors which saves beta
 function [trainError, validationError, beta]= KfoldCV_updated(K, tX, y, mode, varargin)
 % Chech the arguments
 

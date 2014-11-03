@@ -1,6 +1,6 @@
 
-%% Find lambda for penalized ridge regression
-
+%% Saves the best beta for the model of blob 1 using
+%% polynomial regression of degree 3
 
 [X_train, y_train, X_test, ytest, xte] = temp_load_regression_data(0);
 N = size(X_train,1);

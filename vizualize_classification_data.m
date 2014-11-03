@@ -10,8 +10,9 @@ title('Distribution of y training values')
 
 y_train = data.y_train;
 X_train = data.X_train;
-
- for i=1:D
+%% We look at the distributino of both training and testing data to
+%% see if they are similar
+for i=1:D
     [N1, yout] = hist(X_train(:,i)); 
     hold on;
     N2= hist(data.X_test(:,i), yout);

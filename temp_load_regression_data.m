@@ -1,4 +1,11 @@
+%% This file loads only the first 1200 samples for training in X_train
+%% and keeps for a held out data of testing 200 samples.
+%% xte is the unnormalized version of the held out test data, X_test
+%% is the normalized version.
+%% th - 0 loads the samples for the first blob
+%%      1 loads the samples for the second blob
 function [X_train, y_train, X_test, ytest, xte] = temp_load_regression_data( th )
+
 
 clear data
 data = load('Rome_regression.mat');
@@ -7,8 +14,8 @@ N = size(data.X_train,1);
 setSeed(1)
 idx = randperm(N);
 
-y_train = data.y_train(idx(1:1400));
-X_train = data.X_train(idx(1:1400),:);
+y_train = data.y_train(idx(1:1200));
+X_train = data.X_train(idx(1:1200),:);
 
 ytest = data.y_train(idx(1201:end));
 xte = data.X_train(idx(1201:end), :);

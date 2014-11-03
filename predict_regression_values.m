@@ -1,3 +1,5 @@
+%% This file is used for testing the total RMSE and the RMSE per 
+%% blob1 and per blob 2 on unseen held out data
 function predict_regression_values(X_test, y_test, xte)
 
 %% X_test should be processed

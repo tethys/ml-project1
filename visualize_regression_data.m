@@ -1,10 +1,6 @@
 %% author Viviana Petrescu
 %% 19.10.2014
 %%
-%% TODO try least squares
-%% Try dummy variables
-%%
-%%
 
 close all;
 clear all;
@@ -22,7 +18,6 @@ set(gca,'fontsize',20,'fontname','Helvetica','box','off','tickdir','out','tickle
 set(gca, 'XTickLabel', [])
 set([hx; hy],'fontsize',20,'fontname','avantgarde','color',[.3 .3 .3]);
 grid on;
-print -dpdf NAME.pdf
 
 pause
 
@@ -72,6 +67,8 @@ X_train_normalised = X_train_normalised ./ X_std_rep;
 %     end
 %     pause
 % end
+
+%% Plot correlations between certain input features
 figure
 scatter(X_train_normalised(:,5), X_train_normalised(:,12));
 pause
