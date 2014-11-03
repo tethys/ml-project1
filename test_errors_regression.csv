@@ -1,0 +1,4 @@
+method,rmse
+leastSquaresGD,160.032
+leastSquares,160.233
+ridgeRegression,160.233

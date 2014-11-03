@@ -1,6 +1,17 @@
-function beta = logisticRegression( varargin )
-% Summary of this function goes here
-%   Detailed explanation goes here
+function  beta = logisticRegression ( varargin )
+%
+% 'beta' computation for the method logistic regression
+%
+% Mandatory inputs:
+% y      : y of the training dataset
+% tX     : X of the training dataset
+%
+% Optional inputs:
+% alpha  : method parameter alpha
+%
+% Outputs:
+% beta   : estimated coefficients of the model
+%
 
   % Chech the arguments
   switch nargin
@@ -15,24 +26,25 @@ function beta = logisticRegression( varargin )
       otherwise
           error('Unexpected number of input arguments');
   end
-  % Initialize algorithm parametes
+  % Initialize algorithm parameters
   maxIters = 1000;
   beta = zeros( size(tX, 2), 1 );
-  
-  err = 1/eps;
-  
-  [Lold, ~] = computeCostGradLogisticRegression(y, tX, beta, 0);
-
+  err = 1 ./ eps;
+  [Lold, ~] = computeCostGradLogisticRegression ( y, tX, beta, 0 );
   k = 1;
+  
+  % Gradient descent iteration
   while ( k <= maxIters && err > eps )
-      [cost, grad] = computeCostGradLogisticRegression(y, tX, beta, 0);
-      beta = beta - alpha .* grad;
-     % fprintf(1, 'current cost %3.3f\n', cost);
-	 
-	 err = abs(Lold - cost);
-     Lold = cost;
+    % Gradient and cost computation
+    [cost, grad] = computeCostGradLogisticRegression ( y, tX, beta, 0 );
     
-     k = k + 1;
+    % Updating for value of 'beta'
+    beta = beta - alpha .* grad;
+	 
+    err = abs( Lold - cost );
+    Lold = cost;
+    
+    k = k + 1;
   end
   
 end

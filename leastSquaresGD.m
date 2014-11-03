@@ -7,7 +7,7 @@ function  beta = leastSquaresGD ( varargin )
 % tX     : X of the training dataset
 %
 % Optional inputs:
-% alpha : method parameter alpha
+% alpha  : method parameter alpha
 %
 % Outputs:
 % beta   : estimated coefficients of the model
@@ -38,14 +38,14 @@ function  beta = leastSquaresGD ( varargin )
   while ( k <= maxIters && err > eps )
         
     % Gradient computation
-    g = computeGradient(y, tX, beta); 
+    g = computeGradient( y, tX, beta ); 
       
     % Updating for value of 'beta'
     beta = beta - alpha .* g;
     
     % Error computation
-    L = computeCostRMSE(y, tX, beta);
-    err = abs(Lold - L);
+    L = computeCostRMSE( y, tX, beta );
+    err = abs( Lold - L );
     Lold = L;
     
     k = k + 1;

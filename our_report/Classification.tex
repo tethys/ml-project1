@@ -7,24 +7,25 @@ We noticed the samples were not equally distributed among classes, about $35\%$ 
 The training data were again not centered as seen in $Fig.$ \ref{fig:dist_classification}
 After changing feature 14 to a dummy variable we normalized the data to have 0 mean and standard deviation 1. We noticed more outliers in the data of classification than in the one from regression. We removed outliers in a similar way as in the regression task which left us with 1424 samples (5$\%$ of the data were removed).
 
+\subsection{Logistic Regression}
+
+We applied Logistic Regression (logRegression) and Penalized Logistic Regression (penLogRegression) using gradient descent with learning rate $\alpha$.  We obtained the optimal $\alpha$ for logRegression and penalty factor $\lambda$ for penLogisticRegression using the cross validation technique with a $50\%-50\%$ split for training and validation data.
+
 \begin{figure}[h]
 	\begin{subfigure}[b]{0.5\textwidth}
    \includegraphics[width=\textwidth]{figures/classification_distribution.pdf}
-    \captionof{figure}{Mean and standard deviation for the training data features. The input is not normalised and contains outliers.}
+    \captionof{figure}{}
     \label{fig:dist_classification}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.45\textwidth}
    \includegraphics[clip, trim=4cm 9cm 3cm 10cm, width=\textwidth]{figures/Lambda_pLG.pdf}
-    \captionof{figure}{Train and test error assessment with penalty factor ($\lambda$) for penalized logistic regression for 50-50 split.}
+    \captionof{figure}{}
     \label{fig:Lambda_pLr}
   \end{subfigure}
   \hfill
+  \caption{(a) Mean and standard deviation for the training data features. The input is not normalised and contains outliers. (b) Train and test error assessment with penalty factor ($\lambda$) for penalized logistic regression for 50-50 split.}
 \end{figure}
-
-\subsection{Logistic Regression}
-
-We applied Logistic Regression (logRegression) and Penalized Logistic Regression (penLogRegression) using gradient descent with learning rate $\alpha$.  We obtained the optimal $\alpha$ for logRegression and penalty factor $\lambda$ for penLogisticRegression using the cross validation technique with a $50\%-50\%$ split for training and validation data.
 
 In penLogRegression, the choice of penalty factor $\lambda$ is crucial. We sampled 400 values for $\lambda$s in the interval  $10^{-2}$ to $10^3$. As can be seen in $Fig.$ \ref{fig:Lambda_pLr}, for small $\lambda$ values, training error is much lower than the test error while for large $\lambda$ values the test error gets as high as the training error which is a sign of under-fitting. 
 For small $\lambda$ values, the training and test error estimated in penLogisticRegression show very similar behavior with the ones for logRegression. 

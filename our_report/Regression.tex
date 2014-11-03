@@ -77,9 +77,9 @@ $Figure$ \ref{fig:learning_curve} presents the RMSE obtained for the two models,
 
 \begin{figure}[ht]
   \centering
-   \includegraphics[scale=0.45]{figures/learning_curve.pdf}
-    \label{fig:learning_curve}
+   \includegraphics[scale=0.3]{figures/learning_curve.pdf}
   \caption{Learning curve produced for our model using ridge regression. The blue lines represents the train RMSE and the red the test RMSE. Moreover, the top figure represents the big blob and the bottom figure the small blob.}
+  \label{fig:learning_curve}
 \end{figure}
 
 \subsection{Feature transformations}
@@ -90,7 +90,7 @@ We only transformed the first 36 variables and kept the categorical variables as
 In all our experiments we used 5-fold cross-validation. The degree of the polynomial was varied from 1 to 10 for both blob-models. In $Fig$ \ref{fig:degree_blob1}, \ref{fig:degre_blob2} we plotted the mean training and validation RMSE for the degree varying only between 2 - 10 and 2 - 6 respectively for readability (for the other values the RMSE was too big). 
 
 We tried both $\lambda$ and $\alpha$ with values in the set $\{10^i | i =-5,...,2\}$.
-Using 5-fold cross validation with $\lambda = 10{-7}, \alpha = 0.1$ we
+Using 5-fold cross validation with $\lambda = 10^{-7}, \alpha = 0.1$ we
 notice that a polynomial of degree 3 is the best fit for the first blob. Increasing it further leads to over-fitting, since the training errors becomes very small and the validation error increases. For the second blob model, using  $\lambda = 0.001, \alpha = 0.1$ we obtain a best fit for a polynomial of degree 2.
 
 \begin{figure}[h]

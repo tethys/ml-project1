@@ -45,12 +45,14 @@ end
 
 X_test(ind_test_1, :) = X_test_1;
 X_test(ind_test_2, :) = X_test_2;
-for i = 1 : size(X_test,2)
-    figure;
-    scatterhist(X_test(:,i), y_test);
-    pause;
-    close;
-end
+% for i = 1 : size(X_test,2)
+%     figure;
+%     scatterhist(X_test(:,i), y_test);
+%     pause;
+%     close;
+% end
+
+csvwrite('predictions_classification.csv', y_test);
 
 test_error = size(X_test_1,1)/size(X_test,1) * meanValidationError_1 + size(X_test_2,1)/size(X_test,1) * meanValidationError_2;
 fprintf(1,'\nPredicted RMSE for the test data: %3.3f\n', test_error);
