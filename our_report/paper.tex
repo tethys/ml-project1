@@ -60,11 +60,11 @@ The training data $Xtrain$ contains 1400 observations, each 43 dimensional. One 
 
 \subsection{Data visualization and cleaning}
 Initially, our data was not centered, as seen in $Fig.$ \ref{fig:dist_regression}.
-We changed the categorical features into dummy variables, leading to a new vector of size 56. $Xtrain$ was then normalized to have 0 mean and standard deviation 1 (except the dummy variables). We applied the same operations to the test data $Xtest$ on which we will report the results.
+We changed the categorical features into dummy variables, leading to a new vector of size 56. $Xtrain$ was then normalized to have 0 mean and standard deviation 1 (except the dummy variables). We applied the same operations to the test data $Xtest$ on which we will report the predicted output values.
 
- We plotted the correlation of every feature with respect to the output $ytrain$ and the scatter plots did not look random. We concluded the features explain the output, but we could not tell if one of them is insignificant.
+ We plotted the correlation of every feature with respect to the output and the scatter plots did not look random. We concluded the features explain the output, but we could not tell if one of them is insignificant.
 
-The predicted values were real values in $[1000,7000]$ and seemed to be grouped into two blobs. We believed initially the smaller blob represented outliers, but since it contained almost $10\%$ of the data we decided not to ignore it.
+The predicted values are real values in $[1000,7000]$ and seemed to be grouped into two blobs. We believed initially the smaller blob represented outliers, but since it contained almost $10\%$ of the data we decided not to ignore it.
 
 After looking at every feature individually, we noticed that feature 36 offers a clear separation of the two blobs (see $Fig.$ \ref{fig:feature36}). We therefore chose to fit two models, one in which feature 36 has values $>-13$ and one in which it is smaller, corresponding to smaller predicted values. We will refer to the points grouped to the left of the black vertical line in $Fig.$ \ref{fig:feature36} as the first blob or big blob model and the points to the right as the small blob.
 
@@ -76,7 +76,7 @@ After looking at every feature individually, we noticed that feature 36 offers a
     \label{fig:dist_regression}
   \end{subfigure}
   \begin{subfigure}[b]{0.45\textwidth}
-    \includegraphics[width=\textwidth]{figures/feature36_crop.pdf}
+    \includegraphics[width=\textwidth]{figures/feature36_13_crop.pdf}
     \caption{Feature 36 versus output values. X = 1.4 (black line) and y = 4900 (red line)  provide a good separation of the two blobs.}
     \label{fig:feature36}
   \end{subfigure}
@@ -101,7 +101,7 @@ The degree of the polynomial was varied from 1 to 10 for both blob-models. In $F
 
 We tried both $\lambda$ and $\alpha$ with values in the set $\{10^i | i =-5,...,2\}$.
 Using 5-fold cross validation with $\lambda = 1e-5, \alpha = 0.1$ we
-notice that a polynomial of degree 3 is the best fit for the first model. Increasing it further leads to overfitting, since the training errors becomes very small and the validation error increases. For the second model, using  $\lambda = 0.001, \alpha = 0.1$ we obtain a best fit for a polynomial of degree 2.
+notice that a polynomial of degree 3 is the best fit for the first blob. Increasing it further leads to overfitting, since the training errors becomes very small and the validation error increases. For the second blob model, using  $\lambda = 0.001, \alpha = 0.1$ we obtain a best fit for a polynomial of degree 2.
 
 \begin{figure}[h]
   \begin{subfigure}[b]{0.45\textwidth}
@@ -133,16 +133,17 @@ Both polynomial regression models significantly outperform the normal ridge regr
     \captionof{table}{Estimated Train and Test RMSE for the two blob models.}
 \end{center}
 
-We note that our assumption that in our training set we have a clear separation between the two blobs using the value of feature 36 is not a realistic approximation. The problem is that there are some samples with feature 36 $>$ -13 whose predicted value should be estimated using model 1 and some which should use model 2. This can also be seen in $Fig.$\ref{fig:feature36}.
+We note that our assumption that in our training set we have a clear separation between the two blobs using the value of feature 36 is not a realistic approximation. The problem is that there are some samples with feature 36 $<$ -13 whose predicted value should be estimated using model 1 and some which should use model 2. This can also be seen in $Fig.$\ref{fig:feature36}.
  Because of this, we expect our error on new unseen data to be big for samples that have feature 36 value in the range $[-12,-14]$.
  
-To test this, we tried splitting $Xtrain$ into $20\%$ for testing and $80\%$ for training and validation. We applied the same data processing, we estimated model parameters as above and the RMSE per model proved to be very similar with the ones in Table\ref{table:feat_transform}. 
+To test this, we splitted $Xtrain$ into $20\%$ for testing and $80\%$ for training and validation. We applied the same data processing as before, we estimated model parameters as above and the RMSE per model proved to be very similar with the ones in Table\ref{table:feat_transform}. 
 
-However, as we expected, our test error on the held out $20\%$ got much worse. The total RMSE for our $20\%$  test data was 295.78 (RMSE= 73.5 for model 1, RMSE = 887.24 for model2 and 295.78 RMSE combined).
-If we remove all the samples in the held out test data which have feature36 in the interval [-12,-14], we obtain a total RMSE = 68.62 (RMSE = 71.6 for model 1, RMSE = 82.77 for model 2) which validates our hypothesis that the bigger error comes from that part of the model. To sum up, we have two models that work well separately but perform bad for samples with feature 36 near the threshold value.
+However, as we expected, our test error on the held out $20\%$ got much worse. The total RMSE for our $20\%$  test data was 295.78 (RMSE= 73.5 for blob 1, RMSE = 887.24 for blob 2 and 295.78 RMSE combined).
+If we remove all the samples in the held out test data which have feature 36 in the interval [-12,-14], we obtain a total RMSE = 68.62 (RMSE = 71.6 for model 1, RMSE = 82.77 for model 2). We see that the bad fit for blob2 decreased and it is now comparable with the one from blob 1. This validates our hypothesis that high error values come from that part of the model. To sum up, we have two models that work well separately but perform bad for samples with feature 36 near the threshold value.
 
-Our model is a piecewiese polynomial and can suffer from various problems (( see cite book here) for details on how to prevent this). Since we do not enforce continuity at the 36th feature, our model will generate high errors for samples that have the value of feature36 near the threshold value, in our case -13. This happens because feature 36 does not give a clear separation of the data into two distinct models. Enforcing smoothness at the thresholded value could have solved the problem, but we did not thave the time to try this.
+Our model is a piecewiese polynomial and can suffer from various problems (In the book \cite{•2013introduction} for details on how to prevent this). Since we do not enforce continuity at the 36th feature, our model will generate high errors for samples that have the value of feature36 near the threshold value, in our case -13. This happens because feature 36 does not give a clear separation of the data into two distinct models. Enforcing smoothness at the thresholded value could have solved the problem, but we did not thave the time to try this.
 
+\subsection{Summary}
 
 \section{Classification}
 
@@ -156,5 +157,6 @@ Our model is a piecewiese polynomial and can suffer from various problems (( see
 \subsubsection*{Acknowledgments}
 
 \subsubsection*{References}
+G. James, D. Witten, T. Hastie and R. Tibshirani: An introduction to statistical learning,
 
 \end{document}
