@@ -15,13 +15,16 @@ y_train = data.y_train(:,1);
 D = size(data.X_train,2) - 7;
 X_train_real = data.X_train(:,1:D);
 boxplot(X_train_real)
-hx = xlabel('Distribution of training data features');
+hx = xlabel('Mean and standard deviation of training data features');
 hy = ylabel('');
 % the following code makes the plot look nice and increase font size etc.
 set(gca,'fontsize',20,'fontname','Helvetica','box','off','tickdir','out','ticklength',[.02 .02],'xcolor',0.5*[1 1 1],'ycolor',0.5*[1 1 1]);
 set(gca, 'XTickLabel', [])
-set([hx; hy],'fontsize',18,'fontname','avantgarde','color',[.3 .3 .3]);
+set([hx; hy],'fontsize',20,'fontname','avantgarde','color',[.3 .3 .3]);
 grid on;
+print -dpdf NAME.pdf
+
+pause
 
 %% Make categorical data into dummy variables
 X_categorical = data.X_train(:, D+1:end) + 1;
@@ -40,13 +43,13 @@ X_train_normalised = X_train - X_mean_rep;
 X_train_normalised = X_train_normalised ./ X_std_rep;
 
 %% Plot y related to every input
-% % figure;
-%  for i=1:D
-% %     subplot(6,6,i)
-%      scatterhist(X_train_normalised(:,i), y_train); 
-%      pause
-%      close
-%  end
+% figure;
+ for i=36:36
+%     subplot(6,6,i)
+     scatterhist(X_train_normalised(:,i), y_train); 
+     pause
+     close
+ end
 % pause
 
 %% Plot y related to every input
